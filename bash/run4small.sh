@@ -72,5 +72,16 @@ do
 	cat ${outDir}/tmax_tm${time}.txt | grep SDQL | column | cut -d " " -f3 | xargs echo $time >> ${outDir}/time.txt
 done
 
+
+export patterns=750
+export time=1.5
+
+echo
+echo Doing final ATPG
+
+tmax -shell ./tcl/sddatpg.tcl > "${outDir}/tmax_final.txt"
+echo Finished TetraMax
+
+
 echo Done
 exit 0
