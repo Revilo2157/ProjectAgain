@@ -3,7 +3,7 @@ STIL 1.0 {
 }
 Header {
     Title "Minimal STIL for design `multdiv'";
-    Date "Wed Apr 28 04:34:26 2021";
+    Date "Wed Apr 28 12:36:10 2021";
     Source "DFT Compiler F-2011.09";
 }
 Signals {

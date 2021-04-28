@@ -1,0 +1,186 @@
+
+                                  TetraMAX(R) 
+
+
+              Version O-2018.06-SP5-1 for linux64 - Mar 08, 2019  
+
+                    Copyright (c) 1996 - 2019 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+
+ Tcl mode is on by default. Use -notcl to run in native mode.
+ Executing startup file "/home/software/synopsys/tetramax/txs/O-2018.06-SP5-1/admin/setup/tmaxtcl.rc".
+set top_module $::env(top)
+multdiv
+set scan_lib ./nangate_scan.v
+./nangate_scan.v
+set stil_file  ./gate/${top_module}/${top_module}.spf 
+./gate/multdiv/multdiv.spf
+read_netlist -delete
+ Warning: All netlist and library module data are now deleted. (M41)
+# read in scan cell library
+read_netlist $scan_lib -library
+ Begin reading netlist ( ./nangate_scan.v )...
+ End parsing Verilog file ./nangate_scan.v with 0 errors.
+ End reading netlist: #modules=139, top=XOR2_X2, #lines=2594, CPU_time=0.01 sec, Memory=0MB
+# read in user's synthesized verilog code
+#read_netlist $synthesized_files
+read_netlist  ./gate/${top_module}/${top_module}_scan.v
+ Begin reading netlist ( ./gate/multdiv/multdiv_scan.v )...
+ End parsing Verilog file ./gate/multdiv/multdiv_scan.v with 0 errors.
+ End reading netlist: #modules=1, top=multdiv, #lines=2010, CPU_time=0.00 sec, Memory=1MB
+run_build_model $top_module
+ ------------------------------------------------------------------------------
+ Begin build model for topcut = multdiv ...
+ ------------------------------------------------------------------------------
+ There were 1638 primitives and 3 faultable pins removed during model optimizations
+ Warning: Rule B9 (undriven module internal net) was violated 35 times.
+ Warning: Rule B10 (unconnected module internal net) was violated 35 times.
+ Warning: Rule N21 (unsupported UDP entry) was violated 2 times.
+ End build model: #primitives=2349, CPU_time=0.01 sec, Memory=1MB
+ ------------------------------------------------------------------------------
+ Begin learning analyses...
+ End learning analyses, total learning CPU time=0.02 sec.
+ ------------------------------------------------------------------------------
+# ignoring warnings like N20 or B10
+# Set STIL file from DFT Compiler
+set_drc $stil_file
+# run check to see if synthesized code violates any testing rules
+add_clocks 0  $::env(clk)
+add_pi_constraints 0 test_se
+run_drc
+ ------------------------------------------------------------------------------
+ Begin scan design rules checking...
+ ------------------------------------------------------------------------------
+ Begin reading test protocol file ./gate/multdiv/multdiv.spf...
+ Warning: Rule V14 (missing state) was violated 1 times.
+ End parsing STIL file ./gate/multdiv/multdiv.spf with 0 errors.
+ Test protocol file reading completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin Bus/Wire contention ability checking...
+ Bus summary: #bus_gates=65, #bidi=0, #weak=0, #pull=0, #keepers=0
+    Contention status: #pass=1, #bidi=0, #fail=63, #abort=1, #ignored=0, #not_analyzed=0
+    Z-state status   : #pass=0, #bidi=0, #fail=65, #abort=0, #ignored=0, #not_analyzed=0
+ Warning: Rule Z1 (bus capable of contention) was violated 64 times.
+ Warning: Rule Z2 (bus capable of holding Z state) was violated 65 times.
+ Bus/Wire contention ability checking completed, CPU time=0.01 sec.
+ ------------------------------------------------------------------------------
+ Begin simulating test protocol procedures...
+ Warning: Rule Z4 (bus contention in test procedure) was violated 64 times.
+ Test protocol simulation completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin scan chain operation checking...
+ Chain 1 successfully traced with 1 scan_cells.
+ Chain 2 successfully traced with 35 scan_cells.
+ Chain 3 successfully traced with 34 scan_cells.
+ Warning: Rule S19 (nonscan cell disturb) was violated 5 times.
+ Scan chain operation checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin clock rules checking...
+ Warning: Rule C2 (unstable nonscan DFF when clocks off) was violated 5 times.
+ Warning: Rule C17 (clock connected to PO) was violated 35 times.
+ Warning: Rule C19 (clock connected to non-contention-free BUS) was violated 128 times.
+ Warning: Rule C26 (clock as data different from capture clock for stable cell) was violated 67 times.
+ Clock rules checking completed, CPU time=0.00 sec.
+ Clock grouping results: #pairs=0, #groups=0, #serial_pairs=0, #disturbed_pairs=0, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin nonscan rules checking...
+ Nonscan cell summary: #DFF=5  #DLAT=0  #RAM_outs=0  tla_usage_type=none
+ Nonscan behavior:  #CU=5
+ Nonscan rules checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin DRC dependent learning...
+ Fast-sequential depth results: control=0(0), observe=0(0), detect=0(0), CPU time=0.00 sec
+ DRC dependent learning completed, CPU time=0.01 sec.
+ ------------------------------------------------------------------------------
+ Begin contention prevention rules checking...
+ 67 scan cells are connected to contention sensitive BUS gates.
+ Warning: Rule Z10 (internal bus driver enable affected by scan cell) was violated 128 times.
+ Contention prevention checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ DRC Summary Report
+ ------------------------------------------------------------------------------
+ Warning: Rule V14 (missing state) was violated 1 times.
+ Warning: Rule S19 (nonscan cell disturb) was violated 5 times.
+ Warning: Rule C2 (unstable nonscan DFF when clocks off) was violated 5 times.
+ Warning: Rule C17 (clock connected to PO) was violated 35 times.
+ Warning: Rule C19 (clock connected to non-contention-free BUS) was violated 128 times.
+ Warning: Rule C26 (clock as data different from capture clock for stable cell) was violated 67 times.
+ Warning: Rule Z1 (bus capable of contention) was violated 64 times.
+ Warning: Rule Z2 (bus capable of holding Z state) was violated 65 times.
+ Warning: Rule Z4 (bus contention in test procedure) was violated 64 times.
+ Warning: Rule Z10 (internal bus driver enable affected by scan cell) was violated 128 times.
+ There were 562 violations that occurred during DRC process.
+ Design rules checking was successful, total CPU time=0.02 sec.
+ ------------------------------------------------------------------------------
+read_timing ./SDD/slack.dat
+ reading slack data file ./SDD/slack.dat.
+set_delay -launch_cycle last_shift
+set_faults -model transition
+add_faults -all
+ 2928 faults were added to fault list.
+set_faults -report collapsed
+set_faults -summary verbose 
+set_delay -max_tmgn $::env(TMGN)
+puts $::env(TMGN)
+0.26
+ 
+set max_patterns $::env(patterns)
+300
+set time_per_run $::env(time)
+1.5
+set_atpg -patterns $max_patterns -time [list 0 $time_per_run]
+run_atpg basic_scan_only -ndetects 1
+ ATPG performed for transition fault model using internal pattern source.
+ ----------------------------------------------------------
+ #patterns     #faults     #ATPG faults  test      process
+ stored     detect/active  red/au/abort  coverage  CPU time
+ ---------  -------------  ------------  --------  --------
+ Begin deterministic ATPG: #collapsed_faults=2112, abort_limit=10...
+ 31            833   1272         0/7/3    61.52%      0.05
+ 61            129   1092        0/58/7    68.05%      0.08
+ 91             50    807      0/293/12    70.72%      0.13
+ 121            38    749      0/313/19    72.63%      0.15
+ 151            32    690      0/340/26    74.13%      0.17
+ Warning: 1 faults aborted during contention prevention. (M139)
+ 180            35    605      0/390/36    75.62%      0.19
+ 211            32    565      0/398/45    77.00%      0.21
+ 220             8    551      0/404/73    77.41%      0.24
+ 
+    Collapsed Transition Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       1861
+   detected_by_simulation         DS        (33)
+   detected_by_implication        DI       (222)
+   transition-partially_detected   TP      (1606)
+ Possibly detected                PT          0
+ Undetectable                     UD        152
+   undetectable-tied              UT       (147)
+   undetectable-blocked           UB         (5)
+ ATPG untestable                  AU        474
+   atpg_untestable-not_detected   AN       (474)
+ Not detected                     ND         69
+   not-observed                   NO        (69)
+ -----------------------------------------------
+ total faults                              2556
+ test coverage                            77.41%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                         220
+     #basic_scan patterns                   220
+ -----------------------------------------------
+# report_faults -slack effectiveness  
+#report_faults -slack tdet 
+#report_faults -slack delta
+report_faults -slack sdql
+ SDQL 1482193.25
+write_patterns ./SDD/pattern_sdd_slack.stil -internal -format STIL -unified_stil_flow -replace 
+ Patterns written reference 883 V statements, generating 8397 test cycles
+ End writing file 'pattern_sdd_slack.stil' with 220 patterns, File_size = 146516, CPU_time = 0.0 sec.
+exit

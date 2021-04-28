@@ -29,7 +29,7 @@ NangateOpenCellLibrary.db
 set link_library   "* NangateOpenCellLibrary.db"
 * NangateOpenCellLibrary.db
 set timestamp [clock format [clock scan now] -format "%Y-%m-%d_%H-%M"]
-2021-04-28_04-34
+2021-04-28_12-35
 set enable_page_mode false
 false
 set sh_new_variable_message false
@@ -409,6 +409,18 @@ Information: There are 107 potential problems in your design. Please run 'check_
   Processing 'cla_8_0'
   Processing 'cla_32_0'
   Processing 'mux32_2_0'
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_MUX/str/NangateOpenCellLibrary_8421/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_MUX/str/NangateOpenCellLibrary_8421_8167_4702/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_mmux/str/2/NangateOpenCellLibrary_8421/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_mmux/str/2/NangateOpenCellLibrary_8421_8167_4702/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_mmux/str/3/NangateOpenCellLibrary_8421/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_mmux/str/3/NangateOpenCellLibrary_8421_8167_4702/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_mmux/str/4/NangateOpenCellLibrary_8421/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_mmux/str/4/NangateOpenCellLibrary_8421_8167_4702/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_mmux/str/5/NangateOpenCellLibrary_8421/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_mmux/str/5/NangateOpenCellLibrary_8421_8167_4702/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_NOT/str/NangateOpenCellLibrary_8421/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_NOT/str/NangateOpenCellLibrary_8421_8167_4702/element.ddc could not be written.  (SYNOPT-1)
   Processing 'not32_2'
   Processing 'tff_0'
   Processing 'multdiv_counters'
@@ -627,8 +639,8 @@ Information: Design 'multdiv' has no optimization constraints set. (OPT-108)
     0:00:02    2385.8      0.00       0.0     868.1                          
     0:00:02    2385.8      0.00       0.0     868.1                          
     0:00:02    2385.8      0.00       0.0     868.1                          
-    0:00:03    2385.8      0.00       0.0     868.1                          
-    0:00:03    2385.8      0.00       0.0     868.1                          
+    0:00:02    2385.8      0.00       0.0     868.1                          
+    0:00:02    2385.8      0.00       0.0     868.1                          
     0:00:03    2317.1      0.00       0.0     672.4                          
     0:00:03    2317.1      0.00       0.0     672.4                          
     0:00:03    2317.1      0.00       0.0     672.4                          
@@ -717,7 +729,7 @@ check_design
 ****************************************
 check_design summary:
 Version:     F-2011.09
-Date:        Wed Apr 28 04:34:07 2021
+Date:        Wed Apr 28 12:35:50 2021
 ****************************************
 
                    Name                                            Total
@@ -988,7 +1000,7 @@ Information: Updating design information... (UID-85)
     0:00:02    3223.7      1.74      45.6       0.0                                0.00
     0:00:02    3222.9      1.74      45.6       0.0                                0.00
     0:00:02    3222.9      1.74      45.6       0.0                                0.00
-    0:00:03    2392.7      1.74      35.2       0.0                                0.00
+    0:00:02    2392.7      1.74      35.2       0.0                                0.00
     0:00:03    2394.3      1.72      34.6       0.0                                0.00
     0:00:03    2394.3      1.72      34.6       0.0                                0.00
     0:00:03    2394.3      1.72      34.6       0.0                                0.00
@@ -1012,7 +1024,7 @@ Information: Updating design information... (UID-85)
     0:00:03    2413.2      1.46      30.6       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:03    2423.8      1.34      28.7       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:03    2425.7      1.31      27.9       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:04    2434.7      1.22      26.6       0.0 product_reg/memory[63].dff/q_reg/D      0.00
+    0:00:03    2434.7      1.22      26.6       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:04    2439.8      1.20      25.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:04    2440.8      1.19      25.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:04    2442.9      1.16      25.1       0.0 product_reg/memory[63].dff/q_reg/D      0.00
@@ -1020,9 +1032,9 @@ Information: Updating design information... (UID-85)
     0:00:04    2450.9      1.13      23.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:04    2452.0      1.12      23.7       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:04    2450.1      1.11      23.4       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:05    2451.2      1.10      23.1       0.0 product_reg/memory[32].dff/q_reg/D      0.00
-    0:00:05    2452.5      1.10      22.9       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:05    2452.3      1.08      22.6       0.0 product_reg/memory[63].dff/q_reg/D      0.00
+    0:00:04    2451.2      1.10      23.1       0.0 product_reg/memory[32].dff/q_reg/D      0.00
+    0:00:04    2452.5      1.10      22.9       0.0 product_reg/memory[63].dff/q_reg/D      0.00
+    0:00:04    2452.3      1.08      22.6       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:05    2452.5      1.07      22.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:05    2453.3      1.07      22.4       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:05    2456.8      1.04      22.0       0.0 product_reg/memory[63].dff/q_reg/D      0.00
@@ -1030,8 +1042,8 @@ Information: Updating design information... (UID-85)
     0:00:05    2464.2      1.03      20.9       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:05    2464.5      1.03      20.9       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:05    2465.0      1.02      20.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:06    2465.0      1.02      20.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:06    2467.2      1.02      20.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
+    0:00:05    2465.0      1.02      20.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
+    0:00:05    2467.2      1.02      20.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:06    2468.5      1.01      20.6       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:06    2468.7      1.00      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:06    2469.8      1.00      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
@@ -1039,24 +1051,24 @@ Information: Updating design information... (UID-85)
     0:00:06    2471.4      0.98      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:06    2471.4      0.98      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:06    2472.2      0.98      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:07    2472.2      0.98      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
+    0:00:06    2472.2      0.98      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:07    2471.1      0.98      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:07    2472.5      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:07    2472.5      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:07    2473.3      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:08    2472.5      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
+    0:00:07    2472.5      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:08    2472.5      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:08    2473.3      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:08    2473.3      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:08    2474.3      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:09    2473.5      0.96      20.4       0.0 product_reg/memory[63].dff/q_reg/D      0.00
+    0:00:08    2473.5      0.96      20.4       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:09    2472.7      0.96      20.4       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:09    2473.3      0.96      20.4       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:09    2475.7      0.96      20.3       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:10    2478.1      0.95      20.2       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:10    2491.4      0.89      18.2       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:11    2491.1      0.85      17.2       0.0                                0.00
-    0:00:11    2491.9      0.85      17.2       0.0                                0.00
+    0:00:10    2491.1      0.85      17.2       0.0                                0.00
+    0:00:10    2491.9      0.85      17.2       0.0                                0.00
 
 
   Beginning Design Rule Fixing  (min_path)
@@ -1065,7 +1077,7 @@ Information: Updating design information... (UID-85)
    ELAPSED            WORST NEG TOTAL NEG  DESIGN                             MIN DELAY
     TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT            COST   
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:11    2491.9      0.85      17.2       0.0                               -0.09
+    0:00:10    2491.9      0.85      17.2       0.0                               -0.09
     0:00:11    2497.5      0.84      17.2       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:11    2504.9      0.84      15.7       0.0 product_reg/memory[32].dff/q_reg/D      0.00
     0:00:11    2505.7      0.84      15.6       0.0 product_reg/memory[63].dff/q_reg/D      0.00
@@ -1073,9 +1085,9 @@ Information: Updating design information... (UID-85)
     0:00:11    2510.2      0.83      15.4       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:11    2512.6      0.82      15.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:11    2512.1      0.82      15.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:12    2512.1      0.82      15.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:12    2515.6      0.81      15.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:12    2518.2      0.81      15.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
+    0:00:11    2512.1      0.82      15.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
+    0:00:11    2515.6      0.81      15.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
+    0:00:11    2518.2      0.81      15.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:12    2519.0      0.81      15.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:12    2519.0      0.81      15.2       0.0 product_reg/memory[63].dff/q_reg/D      0.00
     0:00:12    2519.0      0.81      15.2       0.0 product_reg/memory[63].dff/q_reg/D      0.00
@@ -1088,9 +1100,9 @@ Information: Updating design information... (UID-85)
    ELAPSED            WORST NEG TOTAL NEG  DESIGN                             MIN DELAY
     TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT            COST   
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:13    2518.0      0.80      15.2       0.0                                0.00
-    0:00:13    2518.0      0.80      15.2       0.0                                0.00
-    0:00:13    2489.5      0.80      15.1       0.0                                0.00
+    0:00:12    2518.0      0.80      15.2       0.0                                0.00
+    0:00:12    2518.0      0.80      15.2       0.0                                0.00
+    0:00:12    2489.5      0.80      15.1       0.0                                0.00
     0:00:13    2475.1      0.80      15.0       0.0                                0.00
     0:00:13    2464.5      0.80      15.0       0.0                                0.00
     0:00:13    2458.4      0.80      15.0       0.0                                0.00
@@ -1104,17 +1116,17 @@ Information: Updating design information... (UID-85)
     0:00:13    2454.6      0.80      15.0       0.0                                0.00
     0:00:13    2454.6      0.80      15.0       0.0                                0.00
     0:00:13    2454.6      0.80      15.0       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:14    2454.9      0.80      14.9       0.0                                0.00
-    0:00:14    2442.4      0.79      14.9       0.0                                0.00
+    0:00:13    2454.9      0.80      14.9       0.0                                0.00
+    0:00:13    2442.4      0.79      14.9       0.0                                0.00
     0:00:14    2431.2      0.79      14.9       0.0                                0.00
     0:00:14    2408.9      0.79      14.9       0.0                                0.00
-    0:00:15    2404.4      0.79      14.9       0.0                                0.00
-    0:00:15    2403.8      0.80      14.9       0.0                                0.00
-    0:00:15    2403.8      0.80      14.9       0.0                                0.00
-    0:00:15    2403.8      0.80      14.9       0.0                                0.00
-    0:00:15    2403.8      0.80      14.9       0.0                                0.00
-    0:00:15    2403.8      0.80      14.9       0.0                                0.00
-    0:00:15    2403.8      0.80      14.9       0.0                                0.00
+    0:00:14    2404.4      0.79      14.9       0.0                                0.00
+    0:00:14    2403.8      0.80      14.9       0.0                                0.00
+    0:00:14    2403.8      0.80      14.9       0.0                                0.00
+    0:00:14    2403.8      0.80      14.9       0.0                                0.00
+    0:00:14    2403.8      0.80      14.9       0.0                                0.00
+    0:00:14    2403.8      0.80      14.9       0.0                                0.00
+    0:00:14    2403.8      0.80      14.9       0.0                                0.00
     0:00:15    2402.8      0.80      14.9       0.0                                0.00
     0:00:15    2403.6      0.80      14.9       0.0 product_reg/memory[63].dff/q_reg/D      0.00
 Loading db file '/winhomes/oar5/project/compilation/NangateOpenCellLibrary.db'

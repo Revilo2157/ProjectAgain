@@ -1,7 +1,7 @@
 (DELAYFILE
 (SDFVERSION "OVI 2.1")
 (DESIGN "multdiv")
-(DATE "Wed Apr 28 04:34:31 2021")
+(DATE "Wed Apr 28 12:36:14 2021")
 (VENDOR "nangate_scan")
 (PROGRAM "Synopsys Design Compiler cmos")
 (VERSION "F-2011.09")
