@@ -1,0 +1,28 @@
+ 
+****************************************
+Report : area
+Design : multdiv
+Version: F-2011.09
+Date   : Wed Apr 28 04:34:30 2021
+****************************************
+
+Library(s) Used:
+
+    nangate_scan (File: /winhomes/oar5/project/compilation/nangate_scan.db)
+
+Number of ports:                          108
+Number of nets:                          1186
+Number of cells:                         1225
+Number of combinational cells:           1150
+Number of sequential cells:                75
+Number of macros:                           0
+Number of buf/inv:                        272
+Number of references:                      28
+
+Combinational area:        923.286005
+Noncombinational area:     877.001990
+Net Interconnect area:     688.169702  
+
+Total cell area:          1800.287995
+Total area:               2488.457697
+1

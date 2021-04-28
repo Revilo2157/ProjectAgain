@@ -1,0 +1,105 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : multdiv
+Version: F-2011.09
+Date   : Wed Apr 28 04:34:30 2021
+****************************************
+
+Operating Conditions: typical   Library: nangate_scan
+Wire Load Model Mode: top
+
+  Startpoint: product_reg/memory_63__dff/q_reg
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: product_reg/memory_63__dff/q_reg
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  multdiv            5K_hvratio_1_1        nangate_scan
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  product_reg/memory_63__dff/q_reg/CK (SDFF_X1)           0.00       0.00 r
+  product_reg/memory_63__dff/q_reg/QN (SDFF_X1)           0.21       0.21 f
+  U652/Z (XOR2_X2)                                        0.10       0.31 f
+  U650/ZN (OAI22_X2)                                      0.11       0.42 r
+  U961/ZN (OR2_X2)                                        0.08       0.50 r
+  U904/ZN (INV_X4)                                        0.04       0.54 f
+  U638/ZN (AOI22_X2)                                      0.07       0.61 r
+  U637/ZN (OAI221_X2)                                     0.05       0.66 f
+  U634/ZN (AOI221_X2)                                     0.10       0.76 r
+  U958/ZN (NOR2_X2)                                       0.04       0.80 f
+  U879/ZN (OAI21_X2)                                      0.08       0.88 r
+  U670/ZN (INV_X4)                                        0.01       0.89 f
+  U949/ZN (AOI21_X2)                                      0.04       0.94 r
+  U948/ZN (AOI21_X2)                                      0.04       0.98 f
+  U895/ZN (OAI21_X2)                                      0.07       1.05 r
+  U579/ZN (AOI22_X2)                                      0.05       1.11 f
+  U947/ZN (AOI21_X2)                                      0.08       1.19 r
+  U880/ZN (AOI21_X2)                                      0.04       1.23 f
+  U894/ZN (OAI21_X2)                                      0.07       1.29 r
+  U953/ZN (OAI21_X2)                                      0.04       1.33 f
+  U667/ZN (INV_X4)                                        0.02       1.35 r
+  U952/ZN (AOI21_X2)                                      0.03       1.38 f
+  U666/ZN (INV_X4)                                        0.03       1.41 r
+  U885/ZN (AOI21_X2)                                      0.03       1.44 f
+  U882/ZN (OAI21_X2)                                      0.08       1.52 r
+  U887/ZN (AOI21_X2)                                      0.04       1.56 f
+  U897/ZN (OAI21_X2)                                      0.06       1.61 r
+  U665/ZN (INV_X4)                                        0.02       1.63 f
+  U892/ZN (OAI21_X2)                                      0.06       1.70 r
+  U884/ZN (AOI21_X2)                                      0.04       1.73 f
+  U899/ZN (OAI21_X2)                                      0.07       1.80 r
+  U512/ZN (AOI22_X2)                                      0.05       1.85 f
+  U890/ZN (OAI21_X2)                                      0.07       1.93 r
+  U888/ZN (AOI21_X2)                                      0.04       1.96 f
+  U664/ZN (INV_X4)                                        0.02       1.99 r
+  U886/ZN (AOI21_X2)                                      0.03       2.02 f
+  U896/ZN (OAI21_X2)                                      0.06       2.07 r
+  U663/ZN (INV_X4)                                        0.02       2.09 f
+  U891/ZN (OAI21_X2)                                      0.06       2.15 r
+  U883/ZN (AOI21_X2)                                      0.04       2.19 f
+  U898/ZN (OAI21_X2)                                      0.07       2.26 r
+  U432/ZN (AOI22_X2)                                      0.06       2.32 f
+  U950/ZN (OAI21_X2)                                      0.07       2.39 r
+  U889/ZN (AOI21_X2)                                      0.04       2.43 f
+  U662/ZN (INV_X4)                                        0.03       2.46 r
+  U881/ZN (AOI21_X2)                                      0.03       2.48 f
+  U893/ZN (OAI21_X2)                                      0.06       2.55 r
+  U661/ZN (INV_X4)                                        0.02       2.57 f
+  U956/ZN (OAI21_X2)                                      0.05       2.62 r
+  U660/ZN (INV_X4)                                        0.02       2.65 f
+  U954/ZN (OAI21_X2)                                      0.06       2.70 r
+  U1028/ZN (AOI21_X2)                                     0.03       2.73 f
+  U360/Z (XOR2_X2)                                        0.09       2.82 f
+  U659/ZN (INV_X4)                                        0.02       2.84 r
+  product_in_tri_62_/Z (TBUF_X2)                          0.12       2.96 r
+  U190/ZN (INV_X4)                                        0.02       2.98 f
+  U963/ZN (NOR2_X2)                                       0.04       3.02 r
+  product_in_tri_63_/Z (TBUF_X2)                          0.13       3.15 r
+  U12/ZN (INV_X4)                                         0.01       3.16 f
+  U11/ZN (OAI22_X2)                                       0.05       3.21 r
+  product_reg/memory_63__dff/q_reg/D (SDFF_X1)            0.00       3.21 r
+  data arrival time                                                  3.21
+
+  clock clock (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  product_reg/memory_63__dff/q_reg/CK (SDFF_X1)           0.00      10.00 r
+  library setup time                                     -0.13       9.87
+  data required time                                                 9.87
+  --------------------------------------------------------------------------
+  data required time                                                 9.87
+  data arrival time                                                 -3.21
+  --------------------------------------------------------------------------
+  slack (MET)                                                        6.66
+
+
+1

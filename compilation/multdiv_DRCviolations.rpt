@@ -1,0 +1,10 @@
+ 
+****************************************
+Report : DFT DRC Violations
+Design : multdiv
+Version: F-2011.09
+Date   : Wed Apr 28 04:34:30 2021
+****************************************
+
+Error: Violations cannot be reported. Please, run dft_drc command first. (TEST-1733)
+0

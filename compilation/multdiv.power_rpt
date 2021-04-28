@@ -1,0 +1,57 @@
+Loading db file '/winhomes/oar5/project/compilation/nangate_scan.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : multdiv
+Version: F-2011.09
+Date   : Wed Apr 28 04:34:31 2021
+****************************************
+
+
+Library(s) Used:
+
+    nangate_scan (File: /winhomes/oar5/project/compilation/nangate_scan.db)
+
+
+Operating Conditions: typical   Library: nangate_scan
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+multdiv                5K_hvratio_1_1    nangate_scan
+
+
+Global Operating Voltage = 1.1  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  =  83.5872 uW   (63%)
+  Net Switching Power  =  49.8863 uW   (37%)
+                         ---------
+Total Dynamic Power    = 133.4735 uW  (100%)
+
+Cell Leakage Power     =  22.7245 uW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network  2.0694e-04        1.4632e-04        1.2385e+04        3.6565e-04  (   0.23%)
+register       3.3060e-02        8.0363e-03        4.2088e+06        4.5305e-02  (  29.00%)
+sequential     9.0517e-05        3.4041e-07        3.2268e+05        4.1354e-04  (   0.26%)
+combinational  5.0230e-02        4.1703e-02        1.8181e+07            0.1101  (  70.50%)
+--------------------------------------------------------------------------------------------------
+Total          8.3587e-02 mW     4.9886e-02 mW     2.2725e+07 pW         0.1562 mW
+1
