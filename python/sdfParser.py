@@ -34,7 +34,7 @@ def increaseDelay(dString):
             toAdd = str(inc + float(val))[:5]
         else:
             toAdd = ""
-        ret.append(toAdd)
+        ret.append(":".join(toAdd))
     return ret
 
 def toString(object, file):
@@ -68,6 +68,7 @@ MAX = float(sys.argv[2])
 chance = float(sys.argv[3])
 num_faults = 0
 num_nets = 0
+skipNext = False
 
 with open(file, "r") as sdfFile:
     inner = []
@@ -82,7 +83,7 @@ with open(file, "r") as sdfFile:
             if char == "\n":
                 continue
 
-            if char == "(":
+            if char == "(" and not skipNext:
                 currScope = getCurrentScope(currLevel)
 
                 if not currLevel:
@@ -98,7 +99,7 @@ with open(file, "r") as sdfFile:
                 currLevel += 1
 
 
-            elif char == ")":
+            elif char == ")" and not skipNext:
                 item = getCurrentScope(currLevel)
                 
                 toAdd = merge(inner)
@@ -125,6 +126,7 @@ with open(file, "r") as sdfFile:
                                             num_faults += 1
                                             # print(delay)
             else:
+                skipNext = char == "\\"
                 inner.append(char)
 
 print(num_nets, num_faults, int(num_faults / num_nets * 10000) / 100, sys.argv[1:])
