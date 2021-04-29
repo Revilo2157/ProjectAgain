@@ -67,7 +67,7 @@ run_drc
  Scan chain operation checking completed, CPU time=0.00 sec.
  ------------------------------------------------------------------------------
  Begin clock rules checking...
- Clock rules checking completed, CPU time=0.00 sec.
+ Clock rules checking completed, CPU time=0.01 sec.
  Clock grouping results: #pairs=0, #groups=0, #serial_pairs=0, #disturbed_pairs=0, CPU time=0.00 sec.
  ------------------------------------------------------------------------------
  Begin nonscan rules checking...
@@ -82,7 +82,7 @@ run_drc
  ------------------------------------------------------------------------------
  Warning: Rule V14 (missing state) was violated 1 times.
  There were 1 violations that occurred during DRC process.
- Design rules checking was successful, total CPU time=0.02 sec.
+ Design rules checking was successful, total CPU time=0.03 sec.
  ------------------------------------------------------------------------------
 read_timing ./SDD/slack.dat
  reading slack data file ./SDD/slack.dat.
@@ -92,10 +92,10 @@ add_faults -all
  17862 faults were added to fault list.
 set_patterns -external ./SDD/pattern_sdd_slack.stil
  End parsing STIL file ./SDD/pattern_sdd_slack.stil with 0 errors.
- End reading 674 patterns, CPU_time = 0.12 sec, Memory = 0MB
+ End reading 674 patterns, CPU_time = 0.13 sec, Memory = 0MB
 run_simulation -override_differences
  Begin good simulation of 674 external patterns.
- Simulation completed: #patterns=674, #fail_pats=0(0), #failing_meas=0(0), #rejected_pats=0, CPU time=0.01
+ Simulation completed: #patterns=674, #fail_pats=0(0), #failing_meas=0(0), #rejected_pats=0, CPU time=0.02
  Existing/added X measures in the external patterns: 0/0
 run_fault_sim
  Simulation performed for 16446 faults on circuit size of 5439 gates.
@@ -104,7 +104,7 @@ run_fault_sim
  simulated  detect/active  coverage  CPU time
  ---------  -------------  --------  --------
  32              0  16446     7.93%      0.00
- Fault simulation completed: #patterns=674, CPU time=0.01
+ Fault simulation completed: #patterns=674, CPU time=0.02
 report_faults -slack sdql
  SDQL 265091552.00
 report_faults -slack effectiveness

@@ -82,7 +82,7 @@ run_drc
  ------------------------------------------------------------------------------
  Warning: Rule V14 (missing state) was violated 1 times.
  There were 1 violations that occurred during DRC process.
- Design rules checking was successful, total CPU time=0.01 sec.
+ Design rules checking was successful, total CPU time=0.02 sec.
  ------------------------------------------------------------------------------
 read_timing ./SDD/slack.dat
  reading slack data file ./SDD/slack.dat.
@@ -103,7 +103,7 @@ run_fault_sim
  #patterns     #faults     test      process
  simulated  detect/active  coverage  CPU time
  ---------  -------------  --------  --------
- 32              0  16446     7.93%      0.00
+ 32              0  16446     7.93%      0.01
  Fault simulation completed: #patterns=674, CPU time=0.02
 report_faults -slack sdql
  SDQL 265091552.00

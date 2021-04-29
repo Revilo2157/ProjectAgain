@@ -56,7 +56,7 @@ set_ideal_network [get_ports $CLK]
 #set_clock_uncertainty 0.2 [all_clocks]
 read_sdf SDD/${top_module}_faulty.sdf
 Information: Merging of parallel arcs is disabled by read_sdf. (SDF-040)
-Error: Error in SDF file /winhomes/oar5/project/SDD/divider_dshift_faulty.sdf Line 19672: Syntax Error at or near token '0'. (SDF-008)
+Error: Error in SDF file /winhomes/oar5/project/SDD/divider_dshift_faulty.sdf Line 19886: Syntax Error at or near token '0'. (SDF-008)
 0
 #set_operating_conditions -min WORST -max WORST
 report_timing 
@@ -68,7 +68,7 @@ Report : timing
 	-sort_by slack
 Design : divider_dshift
 Version: K-2015.06-SP3-2
-Date   : Thu Apr 29 03:02:15 2021
+Date   : Thu Apr 29 03:21:13 2021
 ****************************************
 
 
@@ -132,7 +132,7 @@ Information: Defining new variable 'top_module'. (CMD-041)
 
 Timing updates: 2 (1 implicit, 1 explicit) (1 incremental, 1 full, 0 logical)
 Noise updates: 0 (0 implicit, 0 explicit) (0 incremental, 0 full)
-Maximum memory usage for this session: 566.04 MB
+Maximum memory usage for this session: 570.93 MB
 CPU usage for this session: 2 seconds 
 Elapsed time for this session: 2 seconds
 Diagnostics summary: 1 error, 8 informationals

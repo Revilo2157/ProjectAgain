@@ -25,7 +25,7 @@ read_netlist -delete
 read_netlist $scan_lib -library
  Begin reading netlist ( ./nangate_scan.v )...
  End parsing Verilog file ./nangate_scan.v with 0 errors.
- End reading netlist: #modules=139, top=XOR2_X2, #lines=2594, CPU_time=0.01 sec, Memory=0MB
+ End reading netlist: #modules=139, top=XOR2_X2, #lines=2594, CPU_time=0.00 sec, Memory=0MB
 # read in user's synthesized verilog code
 #read_netlist $synthesized_files
 read_netlist  ./gate/${top_module}/${top_module}_scan.v
@@ -43,7 +43,7 @@ run_build_model $top_module
  End build model: #primitives=5439, CPU_time=0.01 sec, Memory=2MB
  ------------------------------------------------------------------------------
  Begin learning analyses...
- End learning analyses, total learning CPU time=0.11 sec.
+ End learning analyses, total learning CPU time=0.12 sec.
  ------------------------------------------------------------------------------
 set_drc $stil_file
 add_clocks 0 $::env(clk)
@@ -104,7 +104,7 @@ run_fault_sim
  simulated  detect/active  coverage  CPU time
  ---------  -------------  --------  --------
  32              0  16446     7.93%      0.00
- Fault simulation completed: #patterns=674, CPU time=0.02
+ Fault simulation completed: #patterns=674, CPU time=0.01
 report_faults -slack sdql
  SDQL 265091552.00
 report_faults -slack effectiveness

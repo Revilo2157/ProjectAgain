@@ -43,7 +43,7 @@ run_build_model $top_module
  End build model: #primitives=5439, CPU_time=0.01 sec, Memory=2MB
  ------------------------------------------------------------------------------
  Begin learning analyses...
- End learning analyses, total learning CPU time=0.12 sec.
+ End learning analyses, total learning CPU time=0.11 sec.
  ------------------------------------------------------------------------------
 set_drc $stil_file
 add_clocks 0 $::env(clk)
@@ -76,7 +76,7 @@ run_drc
  ------------------------------------------------------------------------------
  Begin DRC dependent learning...
  Fast-sequential depth results: control=0(0), observe=0(0), detect=0(0), CPU time=0.00 sec
- DRC dependent learning completed, CPU time=0.00 sec.
+ DRC dependent learning completed, CPU time=0.01 sec.
  ------------------------------------------------------------------------------
  DRC Summary Report
  ------------------------------------------------------------------------------
@@ -92,7 +92,7 @@ add_faults -all
  17862 faults were added to fault list.
 set_patterns -external ./SDD/pattern_sdd_slack.stil
  End parsing STIL file ./SDD/pattern_sdd_slack.stil with 0 errors.
- End reading 674 patterns, CPU_time = 0.14 sec, Memory = 0MB
+ End reading 674 patterns, CPU_time = 0.15 sec, Memory = 0MB
 run_simulation -override_differences
  Begin good simulation of 674 external patterns.
  Simulation completed: #patterns=674, #fail_pats=0(0), #failing_meas=0(0), #rejected_pats=0, CPU time=0.02
@@ -104,7 +104,7 @@ run_fault_sim
  simulated  detect/active  coverage  CPU time
  ---------  -------------  --------  --------
  32              0  16446     7.93%      0.00
- Fault simulation completed: #patterns=674, CPU time=0.02
+ Fault simulation completed: #patterns=674, CPU time=0.01
 report_faults -slack sdql
  SDQL 265091552.00
 report_faults -slack effectiveness

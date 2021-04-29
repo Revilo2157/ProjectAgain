@@ -41,9 +41,12 @@ do
 
 	pt_shell -f ./tcl/PT_faulty.tcl > "${outDir}/pt_faulty${delay}.txt"
 	echo Finished PrimeTime
+	grep Error "${outDir}/pt_faulty${delay}.txt"
+
 
 	tmax -shell ./tcl/faulty_sim.tcl > "${outDir}/tmax_faulty${delay}.txt"
 	echo Finished TetraMax
+	grep Error "${outDir}/tmax_faulty${delay}.txt"
 
 	cat ${outDir}/tmax_faulty${delay}.txt | grep SDQL | column | cut -d " " -f3 | xargs echo $delay >> ${outDir}/delay.txt
 
