@@ -29,7 +29,7 @@ NangateOpenCellLibrary.db
 set link_library   "* NangateOpenCellLibrary.db"
 * NangateOpenCellLibrary.db
 set timestamp [clock format [clock scan now] -format "%Y-%m-%d_%H-%M"]
-2021-04-28_12-35
+2021-04-29_00-21
 set enable_page_mode false
 false
 set sh_new_variable_message false
@@ -41,11 +41,11 @@ true
 set hdlin_auto_save_templates true
 true
 set sourceDir $::env(source)
-/winhomes/oar5/project/rtl/multdiv
+/winhomes/oar5/project/rtl/divider_dshift
 set top_module $::env(top)
-multdiv
+divider_dshift
 set clk_pin $::env(clk)
-clock
+i_clk
 ############# Elaborate Design ################
 foreach {file} [ls ${sourceDir}/*.v] { 
     read_file -format verilog ${file}
@@ -55,335 +55,89 @@ Loading db file '/home/software/synopsys/synthesis/F-2011.09/libraries/syn/gtech
 Loading db file '/home/software/synopsys/synthesis/F-2011.09/libraries/syn/standard.sldb'
   Loading link library 'NangateOpenCellLibrary'
   Loading link library 'gtech'
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/dffe_ref.v'
+Loading verilog file '/winhomes/oar5/project/rtl/divider_dshift/CLA_fixed.v'
 Detecting input file type automatically (-rtl or -netlist).
 Running DC verilog reader
 Reading with Presto HDL Compiler (equivalent to -rtl option).
 Running PRESTO HDLC
-Compiling source file /winhomes/oar5/project/rtl/multdiv/dffe_ref.v
-Warning:  /winhomes/oar5/project/rtl/multdiv/dffe_ref.v:22: The statements in initial blocks are ignored. (VER-281)
+Compiling source file /winhomes/oar5/project/rtl/divider_dshift/CLA_fixed.v
+Presto compilation completed successfully.
+Current design is now '/winhomes/oar5/project/rtl/divider_dshift/operator_A.db:operator_A'
+Loaded 4 designs.
+Current design is 'operator_A'.
+Loading verilog file '/winhomes/oar5/project/rtl/divider_dshift/divider_dshift.v'
+Detecting input file type automatically (-rtl or -netlist).
+Running DC verilog reader
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /winhomes/oar5/project/rtl/divider_dshift/divider_dshift.v
+Warning:  /winhomes/oar5/project/rtl/divider_dshift/divider_dshift.v:94: signed to unsigned conversion occurs. (VER-318)
+Warning:  /winhomes/oar5/project/rtl/divider_dshift/divider_dshift.v:98: signed to unsigned assignment occurs. (VER-318)
+Warning:  /winhomes/oar5/project/rtl/divider_dshift/divider_dshift.v:175: unsigned to signed assignment occurs. (VER-318)
+Warning:  /winhomes/oar5/project/rtl/divider_dshift/divider_dshift.v:230: unsigned to signed assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 134 in file
+	'/winhomes/oar5/project/rtl/divider_dshift/divider_dshift.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           162            |     no/auto      |
+|           164            |     no/auto      |
+===============================================
 
 Inferred memory devices in process
-	in routine dffe_ref line 22 in file
-		'/winhomes/oar5/project/rtl/multdiv/dffe_ref.v'.
+	in routine divider_dshift line 134 in file
+		'/winhomes/oar5/project/rtl/divider_dshift/divider_dshift.v'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
-|        q_reg        | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      PR_1_reg       | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      sdata_reg      | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       DR_reg        | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       ct_reg        | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   o_remainder_reg   | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    reg_carry_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      ready_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    state_reg_reg    | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     ct_1_en_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   o_quotient_reg    | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      reg_b_reg      | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|        q_reg        | Flip-flop |  31   |  N  | N  | Y  | N  | N  | N  | N  |
+|       nq_reg        | Flip-flop |  31   |  N  | N  | Y  | N  | N  | N  | N  |
+|      reg_a_reg      | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      state_reg      | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      state_reg      | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|    ct_1_en_1_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      ct_1_reg       | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     DD_sign_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     shifted_reg     | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    shifted_1_reg    | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       PR_reg        | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
 ===============================================================================
 Presto compilation completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/dffe_ref.db:dffe_ref'
+Current design is now '/winhomes/oar5/project/rtl/divider_dshift/divider_dshift.db:divider_dshift'
 Loaded 1 design.
-Current design is 'dffe_ref'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/gen_cla_32.v'
+Current design is 'divider_dshift'.
+Loading verilog file '/winhomes/oar5/project/rtl/divider_dshift/shifter.v'
 Detecting input file type automatically (-rtl or -netlist).
 Running DC verilog reader
 Reading with Presto HDL Compiler (equivalent to -rtl option).
 Running PRESTO HDLC
-Compiling source file /winhomes/oar5/project/rtl/multdiv/gen_cla_32.v
+Compiling source file /winhomes/oar5/project/rtl/divider_dshift/shifter.v
+Warning:  /winhomes/oar5/project/rtl/divider_dshift/shifter.v:278: signed to unsigned assignment occurs. (VER-318)
 Presto compilation completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/cla_32.db:cla_32'
-Loaded 1 design.
-Current design is 'cla_32'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/gen_cla_8.v'
-Detecting input file type automatically (-rtl or -netlist).
-Running DC verilog reader
-Reading with Presto HDL Compiler (equivalent to -rtl option).
-Running PRESTO HDLC
-Compiling source file /winhomes/oar5/project/rtl/multdiv/gen_cla_8.v
-Warning:  Starting with the 2000.11-1 release, the Presto Verilog reader treats Verilog 'integer' types as signed; synthesized result may not match earlier versions of HDL Compiler. (VER-314)
-Presto compilation completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/cla_8.db:cla_8'
-Loaded 1 design.
-Current design is 'cla_8'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/gen_decoder32.v'
-Detecting input file type automatically (-rtl or -netlist).
-Running DC verilog reader
-Reading with Presto HDL Compiler (equivalent to -rtl option).
-Running PRESTO HDLC
-Compiling source file /winhomes/oar5/project/rtl/multdiv/gen_decoder32.v
-Presto compilation completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/decoder32.db:decoder32'
-Loaded 1 design.
-Current design is 'decoder32'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/gen_decoder8.v'
-Detecting input file type automatically (-rtl or -netlist).
-Running DC verilog reader
-Reading with Presto HDL Compiler (equivalent to -rtl option).
-Running PRESTO HDLC
-Compiling source file /winhomes/oar5/project/rtl/multdiv/gen_decoder8.v
-Presto compilation completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/decoder8.db:decoder8'
-Loaded 1 design.
-Current design is 'decoder8'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/gen_mux32_2.v'
-Detecting input file type automatically (-rtl or -netlist).
-Running DC verilog reader
-Reading with Presto HDL Compiler (equivalent to -rtl option).
-Running PRESTO HDLC
-Compiling source file /winhomes/oar5/project/rtl/multdiv/gen_mux32_2.v
-Presto compilation completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/mux32_2.db:mux32_2'
-Loaded 1 design.
-Current design is 'mux32_2'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/gen_mux32_4.v'
-Detecting input file type automatically (-rtl or -netlist).
-Running DC verilog reader
-Performing 'read' command.
-Compiling source file /winhomes/oar5/project/rtl/multdiv/gen_mux32_4.v
-Reading with netlist reader (equivalent to -netlist option).
-Verilog netlist reader completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/mux32_4.db:mux32_4'
-Loaded 1 design.
-Current design is 'mux32_4'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/gen_mux32_8.v'
-Detecting input file type automatically (-rtl or -netlist).
-Running DC verilog reader
-Performing 'read' command.
-Compiling source file /winhomes/oar5/project/rtl/multdiv/gen_mux32_8.v
-Reading with netlist reader (equivalent to -netlist option).
-Verilog netlist reader completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/mux32_8.db:mux32_8'
-Loaded 1 design.
-Current design is 'mux32_8'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/gen_not32_2.v'
-Detecting input file type automatically (-rtl or -netlist).
-Running DC verilog reader
-Reading with Presto HDL Compiler (equivalent to -rtl option).
-Running PRESTO HDLC
-Compiling source file /winhomes/oar5/project/rtl/multdiv/gen_not32_2.v
-Warning:  /winhomes/oar5/project/rtl/multdiv/gen_not32_2.v:8: A unnamed generate block with an LRM-defined name 'genblk1' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
-Warning:  Starting with the 2000.11-1 release, the Presto Verilog reader treats Verilog 'integer' types as signed; synthesized result may not match earlier versions of HDL Compiler. (VER-314)
-Presto compilation completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/not32_2.db:not32_2'
-Loaded 1 design.
-Current design is 'not32_2'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/gen_reg32.v'
-Detecting input file type automatically (-rtl or -netlist).
-Running DC verilog reader
-Reading with Presto HDL Compiler (equivalent to -rtl option).
-Running PRESTO HDLC
-Compiling source file /winhomes/oar5/project/rtl/multdiv/gen_reg32.v
-Warning:  Starting with the 2000.11-1 release, the Presto Verilog reader treats Verilog 'integer' types as signed; synthesized result may not match earlier versions of HDL Compiler. (VER-314)
-Presto compilation completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/reg32.db:reg32'
-Loaded 1 design.
-Current design is 'reg32'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/gen_reg65.v'
-Detecting input file type automatically (-rtl or -netlist).
-Running DC verilog reader
-Reading with Presto HDL Compiler (equivalent to -rtl option).
-Running PRESTO HDLC
-Compiling source file /winhomes/oar5/project/rtl/multdiv/gen_reg65.v
-Warning:  Starting with the 2000.11-1 release, the Presto Verilog reader treats Verilog 'integer' types as signed; synthesized result may not match earlier versions of HDL Compiler. (VER-314)
-Presto compilation completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/reg65.db:reg65'
-Loaded 1 design.
-Current design is 'reg65'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/gen_tff.v'
-Detecting input file type automatically (-rtl or -netlist).
-Running DC verilog reader
-Reading with Presto HDL Compiler (equivalent to -rtl option).
-Running PRESTO HDLC
-Compiling source file /winhomes/oar5/project/rtl/multdiv/gen_tff.v
-Presto compilation completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/tff.db:tff'
-Loaded 1 design.
-Current design is 'tff'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/gen_tristate.v'
-Detecting input file type automatically (-rtl or -netlist).
-Running DC verilog reader
-Reading with Presto HDL Compiler (equivalent to -rtl option).
-Running PRESTO HDLC
-Compiling source file /winhomes/oar5/project/rtl/multdiv/gen_tristate.v
-
-Inferred tri-state devices in process
-	in routine tristate line 7 in file
-		'/winhomes/oar5/project/rtl/multdiv/gen_tristate.v'.
-=================================================
-| Register Name |       Type       | Width | MB |
-=================================================
-|    out_tri    | Tri-State Buffer |   1   | N  |
-=================================================
-Presto compilation completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/tristate.db:tristate'
-Loaded 1 design.
-Current design is 'tristate'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/gen_tristate32.v'
-Detecting input file type automatically (-rtl or -netlist).
-Running DC verilog reader
-Reading with Presto HDL Compiler (equivalent to -rtl option).
-Running PRESTO HDLC
-Compiling source file /winhomes/oar5/project/rtl/multdiv/gen_tristate32.v
-
-Inferred tri-state devices in process
-	in routine tristate32 line 7 in file
-		'/winhomes/oar5/project/rtl/multdiv/gen_tristate32.v'.
-=================================================
-| Register Name |       Type       | Width | MB |
-=================================================
-|    out_tri    | Tri-State Buffer |  32   | N  |
-=================================================
-Presto compilation completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/tristate32.db:tristate32'
-Loaded 1 design.
-Current design is 'tristate32'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/multdiv.v'
-Detecting input file type automatically (-rtl or -netlist).
-Running DC verilog reader
-Reading with Presto HDL Compiler (equivalent to -rtl option).
-Running PRESTO HDLC
-Compiling source file /winhomes/oar5/project/rtl/multdiv/multdiv.v
-
-Inferred tri-state devices in process
-	in routine multdiv line 105 in file
-		'/winhomes/oar5/project/rtl/multdiv/multdiv.v'.
-==================================================
-| Register Name  |       Type       | Width | MB |
-==================================================
-| product_in_tri | Tri-State Buffer |  31   | N  |
-==================================================
-
-Inferred tri-state devices in process
-	in routine multdiv line 106 in file
-		'/winhomes/oar5/project/rtl/multdiv/multdiv.v'.
-==================================================
-| Register Name  |       Type       | Width | MB |
-==================================================
-| product_in_tri | Tri-State Buffer |  32   | N  |
-==================================================
-
-Inferred tri-state devices in process
-	in routine multdiv line 107 in file
-		'/winhomes/oar5/project/rtl/multdiv/multdiv.v'.
-==================================================
-| Register Name  |       Type       | Width | MB |
-==================================================
-| product_in_tri | Tri-State Buffer |   2   | N  |
-==================================================
-
-Inferred tri-state devices in process
-	in routine multdiv line 110 in file
-		'/winhomes/oar5/project/rtl/multdiv/multdiv.v'.
-===================================================
-|  Register Name  |       Type       | Width | MB |
-===================================================
-| product_in_tri2 | Tri-State Buffer |  32   | N  |
-===================================================
-
-Inferred tri-state devices in process
-	in routine multdiv line 111 in file
-		'/winhomes/oar5/project/rtl/multdiv/multdiv.v'.
-===================================================
-|  Register Name  |       Type       | Width | MB |
-===================================================
-| product_in_tri2 | Tri-State Buffer |   1   | N  |
-===================================================
-
-Inferred tri-state devices in process
-	in routine multdiv line 112 in file
-		'/winhomes/oar5/project/rtl/multdiv/multdiv.v'.
-===================================================
-|  Register Name  |       Type       | Width | MB |
-===================================================
-| product_in_tri2 | Tri-State Buffer |  32   | N  |
-===================================================
-
-Inferred tri-state devices in process
-	in routine multdiv line 115 in file
-		'/winhomes/oar5/project/rtl/multdiv/multdiv.v'.
-===================================================
-|  Register Name  |       Type       | Width | MB |
-===================================================
-| product_in_tri3 | Tri-State Buffer |   1   | N  |
-===================================================
-
-Inferred tri-state devices in process
-	in routine multdiv line 116 in file
-		'/winhomes/oar5/project/rtl/multdiv/multdiv.v'.
-===================================================
-|  Register Name  |       Type       | Width | MB |
-===================================================
-| product_in_tri3 | Tri-State Buffer |  32   | N  |
-===================================================
-
-Inferred tri-state devices in process
-	in routine multdiv line 117 in file
-		'/winhomes/oar5/project/rtl/multdiv/multdiv.v'.
-===================================================
-|  Register Name  |       Type       | Width | MB |
-===================================================
-| product_in_tri3 | Tri-State Buffer |  31   | N  |
-===================================================
-
-Inferred tri-state devices in process
-	in routine multdiv line 120 in file
-		'/winhomes/oar5/project/rtl/multdiv/multdiv.v'.
-===================================================
-|  Register Name  |       Type       | Width | MB |
-===================================================
-| product_in_tri4 | Tri-State Buffer |  31   | N  |
-===================================================
-
-Inferred tri-state devices in process
-	in routine multdiv line 121 in file
-		'/winhomes/oar5/project/rtl/multdiv/multdiv.v'.
-===================================================
-|  Register Name  |       Type       | Width | MB |
-===================================================
-| product_in_tri4 | Tri-State Buffer |  31   | N  |
-===================================================
-
-Inferred tri-state devices in process
-	in routine multdiv line 122 in file
-		'/winhomes/oar5/project/rtl/multdiv/multdiv.v'.
-===================================================
-|  Register Name  |       Type       | Width | MB |
-===================================================
-| product_in_tri4 | Tri-State Buffer |   1   | N  |
-===================================================
-
-Inferred tri-state devices in process
-	in routine multdiv line 123 in file
-		'/winhomes/oar5/project/rtl/multdiv/multdiv.v'.
-===================================================
-|  Register Name  |       Type       | Width | MB |
-===================================================
-| product_in_tri4 | Tri-State Buffer |   1   | N  |
-===================================================
-Presto compilation completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/multdiv.db:multdiv'
-Loaded 1 design.
-Current design is 'multdiv'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/multdiv_counters.v'
-Detecting input file type automatically (-rtl or -netlist).
-Running DC verilog reader
-Reading with Presto HDL Compiler (equivalent to -rtl option).
-Running PRESTO HDLC
-Compiling source file /winhomes/oar5/project/rtl/multdiv/multdiv_counters.v
-Presto compilation completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/multdiv_counters.db:multdiv_counters'
-Loaded 1 design.
-Current design is 'multdiv_counters'.
-Loading verilog file '/winhomes/oar5/project/rtl/multdiv/multdiv_ctrl.v'
-Detecting input file type automatically (-rtl or -netlist).
-Running DC verilog reader
-Reading with Presto HDL Compiler (equivalent to -rtl option).
-Running PRESTO HDLC
-Compiling source file /winhomes/oar5/project/rtl/multdiv/multdiv_ctrl.v
-Presto compilation completed successfully.
-Current design is now '/winhomes/oar5/project/rtl/multdiv/multdiv_ctrl.db:multdiv_ctrl'
-Loaded 1 design.
-Current design is 'multdiv_ctrl'.
+Current design is now '/winhomes/oar5/project/rtl/divider_dshift/shift_1b.db:shift_1b'
+Loaded 5 designs.
+Current design is 'shift_1b'.
 current_design ${top_module}
-Current design is 'multdiv'.
-{multdiv}
+Current design is 'divider_dshift'.
+{divider_dshift}
 link
 
-  Linking design 'multdiv'
+  Linking design 'divider_dshift'
   Using the following designs and libraries:
   --------------------------------------------------------------------------
-  * (17 designs)              /winhomes/oar5/project/rtl/multdiv/multdiv.db, etc
+  * (10 designs)              /winhomes/oar5/project/rtl/divider_dshift/divider_dshift.db, etc
   NangateOpenCellLibrary (library) /winhomes/oar5/project/compilation/NangateOpenCellLibrary.db
 
 1
@@ -398,17 +152,17 @@ Information: Evaluating DesignWare library utilization. (UISN-27)
 ============================================================================
 
 
-Information: There are 107 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+Information: There are 63 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
 
 
 
   Beginning Pass 1 Mapping
   ------------------------
-  Processing 'dffe_ref_0'
-  Processing 'reg65'
-  Processing 'cla_8_0'
-  Processing 'cla_32_0'
-  Processing 'mux32_2_0'
+  Processing 'operator_C_0'
+  Processing 'operator_B_0'
+  Processing 'operator_A_0'
+  Processing 'adder_32bit_0'
+  Processing 'shift_1b_0'
 Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_MUX/str/NangateOpenCellLibrary_8421/element.ddc could not be written.  (SYNOPT-1)
 Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_MUX/str/NangateOpenCellLibrary_8421_8167_4702/element.ddc could not be written.  (SYNOPT-1)
 Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_mmux/str/2/NangateOpenCellLibrary_8421/element.ddc could not be written.  (SYNOPT-1)
@@ -421,236 +175,533 @@ Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_mmux/st
 Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_mmux/str/5/NangateOpenCellLibrary_8421_8167_4702/element.ddc could not be written.  (SYNOPT-1)
 Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_NOT/str/NangateOpenCellLibrary_8421/element.ddc could not be written.  (SYNOPT-1)
 Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_NOT/str/NangateOpenCellLibrary_8421_8167_4702/element.ddc could not be written.  (SYNOPT-1)
-  Processing 'not32_2'
-  Processing 'tff_0'
-  Processing 'multdiv_counters'
-  Processing 'decoder8'
-  Processing 'multdiv_ctrl'
-  Processing 'multdiv'
+  Processing 'shift_3b_0'
+  Processing 'shift_7b'
+  Processing 'shifter'
+  Processing 'divider_dshift'
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_inc/rpl/31/NangateOpenCellLibrary_8421/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_NAND2/str/NangateOpenCellLibrary_8421/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_NAND2/str/NangateOpenCellLibrary_8421_8167_4702/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_inc/rpl/31/NangateOpenCellLibrary_8421_8167_4702/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW_rash/mx2/32/6/NangateOpenCellLibrary_8421/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW_rash/mx2/32/6/NangateOpenCellLibrary_8421_8167_4702/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_add/rpl/31/NangateOpenCellLibrary_8421/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_add/rpl/31/NangateOpenCellLibrary_8421_8167_4702/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_add/cla/31/NangateOpenCellLibrary_8421/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_add/cla/31/NangateOpenCellLibrary_8421_8167_4702/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_incdec/rpl/31/NangateOpenCellLibrary_8421/element.ddc could not be written.  (SYNOPT-1)
+Warning: Cache element /winhomes/oar5/synopsys_cache_F-2011.09/DW01/DW01_incdec/rpl/31/NangateOpenCellLibrary_8421_8167_4702/element.ddc could not be written.  (SYNOPT-1)
 
   Updating timing information
 Information: Updating design information... (UID-85)
-Information: Design 'multdiv' has no optimization constraints set. (OPT-108)
+Information: Design 'divider_dshift' has no optimization constraints set. (OPT-108)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'divider_dshift_DW_rash_0'
+  Processing 'divider_dshift_DW01_inc_0'
+  Processing 'divider_dshift_DW01_inc_1'
 
   Beginning Mapping Optimizations  (Medium effort)
   -------------------------------
-  Structuring 'tff_5'
-  Mapping 'tff_5'
-  Structuring 'tff_4'
-  Mapping 'tff_4'
-  Structuring 'tff_3'
-  Mapping 'tff_3'
-  Structuring 'tff_2'
-  Mapping 'tff_2'
-  Structuring 'tff_1'
-  Mapping 'tff_1'
-  Structuring 'mux32_2_2'
-  Mapping 'mux32_2_2'
-  Structuring 'mux32_2_1'
-  Mapping 'mux32_2_1'
-  Structuring 'cla_8_7'
-  Mapping 'cla_8_7'
-  Structuring 'cla_8_6'
-  Mapping 'cla_8_6'
-  Structuring 'cla_8_5'
-  Mapping 'cla_8_5'
-  Structuring 'cla_8_4'
-  Mapping 'cla_8_4'
-  Structuring 'cla_8_3'
-  Mapping 'cla_8_3'
-  Structuring 'cla_8_2'
-  Mapping 'cla_8_2'
-  Structuring 'cla_8_1'
-  Mapping 'cla_8_1'
-  Structuring 'cla_32_1'
-  Mapping 'cla_32_1'
-  Structuring 'dffe_ref_74'
-  Mapping 'dffe_ref_74'
-  Structuring 'dffe_ref_73'
-  Mapping 'dffe_ref_73'
-  Structuring 'dffe_ref_72'
-  Mapping 'dffe_ref_72'
-  Structuring 'dffe_ref_71'
-  Mapping 'dffe_ref_71'
-  Structuring 'dffe_ref_70'
-  Mapping 'dffe_ref_70'
-  Structuring 'dffe_ref_69'
-  Mapping 'dffe_ref_69'
-  Structuring 'dffe_ref_68'
-  Mapping 'dffe_ref_68'
-  Structuring 'dffe_ref_67'
-  Mapping 'dffe_ref_67'
-  Structuring 'dffe_ref_66'
-  Mapping 'dffe_ref_66'
-  Structuring 'dffe_ref_65'
-  Mapping 'dffe_ref_65'
-  Structuring 'dffe_ref_64'
-  Mapping 'dffe_ref_64'
-  Structuring 'dffe_ref_63'
-  Mapping 'dffe_ref_63'
-  Structuring 'dffe_ref_62'
-  Mapping 'dffe_ref_62'
-  Structuring 'dffe_ref_61'
-  Mapping 'dffe_ref_61'
-  Structuring 'dffe_ref_60'
-  Mapping 'dffe_ref_60'
-  Structuring 'dffe_ref_59'
-  Mapping 'dffe_ref_59'
-  Structuring 'dffe_ref_58'
-  Mapping 'dffe_ref_58'
-  Structuring 'dffe_ref_57'
-  Mapping 'dffe_ref_57'
-  Structuring 'dffe_ref_56'
-  Mapping 'dffe_ref_56'
-  Structuring 'dffe_ref_55'
-  Mapping 'dffe_ref_55'
-  Structuring 'dffe_ref_54'
-  Mapping 'dffe_ref_54'
-  Structuring 'dffe_ref_53'
-  Mapping 'dffe_ref_53'
-  Structuring 'dffe_ref_52'
-  Mapping 'dffe_ref_52'
-  Structuring 'dffe_ref_51'
-  Mapping 'dffe_ref_51'
-  Structuring 'dffe_ref_50'
-  Mapping 'dffe_ref_50'
-  Structuring 'dffe_ref_49'
-  Mapping 'dffe_ref_49'
-  Structuring 'dffe_ref_48'
-  Mapping 'dffe_ref_48'
-  Structuring 'dffe_ref_47'
-  Mapping 'dffe_ref_47'
-  Structuring 'dffe_ref_46'
-  Mapping 'dffe_ref_46'
-  Structuring 'dffe_ref_45'
-  Mapping 'dffe_ref_45'
-  Structuring 'dffe_ref_44'
-  Mapping 'dffe_ref_44'
-  Structuring 'dffe_ref_43'
-  Mapping 'dffe_ref_43'
-  Structuring 'dffe_ref_42'
-  Mapping 'dffe_ref_42'
-  Structuring 'dffe_ref_41'
-  Mapping 'dffe_ref_41'
-  Structuring 'dffe_ref_40'
-  Mapping 'dffe_ref_40'
-  Structuring 'dffe_ref_39'
-  Mapping 'dffe_ref_39'
-  Structuring 'dffe_ref_38'
-  Mapping 'dffe_ref_38'
-  Structuring 'dffe_ref_37'
-  Mapping 'dffe_ref_37'
-  Structuring 'dffe_ref_36'
-  Mapping 'dffe_ref_36'
-  Structuring 'dffe_ref_35'
-  Mapping 'dffe_ref_35'
-  Structuring 'dffe_ref_34'
-  Mapping 'dffe_ref_34'
-  Structuring 'dffe_ref_33'
-  Mapping 'dffe_ref_33'
-  Structuring 'dffe_ref_32'
-  Mapping 'dffe_ref_32'
-  Structuring 'dffe_ref_31'
-  Mapping 'dffe_ref_31'
-  Structuring 'dffe_ref_30'
-  Mapping 'dffe_ref_30'
-  Structuring 'dffe_ref_29'
-  Mapping 'dffe_ref_29'
-  Structuring 'dffe_ref_28'
-  Mapping 'dffe_ref_28'
-  Structuring 'dffe_ref_27'
-  Mapping 'dffe_ref_27'
-  Structuring 'dffe_ref_26'
-  Mapping 'dffe_ref_26'
-  Structuring 'dffe_ref_25'
-  Mapping 'dffe_ref_25'
-  Structuring 'dffe_ref_24'
-  Mapping 'dffe_ref_24'
-  Structuring 'dffe_ref_23'
-  Mapping 'dffe_ref_23'
-  Structuring 'dffe_ref_22'
-  Mapping 'dffe_ref_22'
-  Structuring 'dffe_ref_21'
-  Mapping 'dffe_ref_21'
-  Structuring 'dffe_ref_20'
-  Mapping 'dffe_ref_20'
-  Structuring 'dffe_ref_19'
-  Mapping 'dffe_ref_19'
-  Structuring 'dffe_ref_18'
-  Mapping 'dffe_ref_18'
-  Structuring 'dffe_ref_17'
-  Mapping 'dffe_ref_17'
-  Structuring 'dffe_ref_16'
-  Mapping 'dffe_ref_16'
-  Structuring 'dffe_ref_15'
-  Mapping 'dffe_ref_15'
-  Structuring 'dffe_ref_14'
-  Mapping 'dffe_ref_14'
-  Structuring 'dffe_ref_13'
-  Mapping 'dffe_ref_13'
-  Structuring 'dffe_ref_12'
-  Mapping 'dffe_ref_12'
-  Structuring 'dffe_ref_11'
-  Mapping 'dffe_ref_11'
-  Structuring 'dffe_ref_10'
-  Mapping 'dffe_ref_10'
-  Structuring 'dffe_ref_9'
-  Mapping 'dffe_ref_9'
-  Structuring 'dffe_ref_8'
-  Mapping 'dffe_ref_8'
-  Structuring 'dffe_ref_7'
-  Mapping 'dffe_ref_7'
-  Structuring 'dffe_ref_6'
-  Mapping 'dffe_ref_6'
-  Structuring 'dffe_ref_5'
-  Mapping 'dffe_ref_5'
-  Structuring 'dffe_ref_4'
-  Mapping 'dffe_ref_4'
-  Structuring 'dffe_ref_3'
-  Mapping 'dffe_ref_3'
-  Structuring 'dffe_ref_2'
-  Mapping 'dffe_ref_2'
-  Structuring 'dffe_ref_1'
-  Mapping 'dffe_ref_1'
-  Structuring 'tff_0'
-  Mapping 'tff_0'
-  Structuring 'cla_8_0'
-  Mapping 'cla_8_0'
-  Structuring 'dffe_ref_0'
-  Mapping 'dffe_ref_0'
-  Structuring 'multdiv_counters'
-  Mapping 'multdiv_counters'
-  Structuring 'decoder8'
-  Mapping 'decoder8'
-  Structuring 'cla_32_0'
-  Mapping 'cla_32_0'
-  Structuring 'mux32_2_0'
-  Mapping 'mux32_2_0'
-  Structuring 'not32_2'
-  Mapping 'not32_2'
-  Structuring 'multdiv_ctrl'
-  Mapping 'multdiv_ctrl'
-  Structuring 'multdiv'
-  Mapping 'multdiv'
+  Structuring 'shift_3b_2'
+  Mapping 'shift_3b_2'
+  Structuring 'shift_3b_1'
+  Mapping 'shift_3b_1'
+  Structuring 'shift_1b_3'
+  Mapping 'shift_1b_3'
+  Structuring 'shift_1b_2'
+  Mapping 'shift_1b_2'
+  Structuring 'shift_1b_1'
+  Mapping 'shift_1b_1'
+  Structuring 'operator_C_63'
+  Mapping 'operator_C_63'
+  Structuring 'operator_C_62'
+  Mapping 'operator_C_62'
+  Structuring 'operator_C_61'
+  Mapping 'operator_C_61'
+  Structuring 'operator_C_60'
+  Mapping 'operator_C_60'
+  Structuring 'operator_C_59'
+  Mapping 'operator_C_59'
+  Structuring 'operator_C_58'
+  Mapping 'operator_C_58'
+  Structuring 'operator_C_57'
+  Mapping 'operator_C_57'
+  Structuring 'operator_C_56'
+  Mapping 'operator_C_56'
+  Structuring 'operator_C_55'
+  Mapping 'operator_C_55'
+  Structuring 'operator_C_54'
+  Mapping 'operator_C_54'
+  Structuring 'operator_C_53'
+  Mapping 'operator_C_53'
+  Structuring 'operator_C_52'
+  Mapping 'operator_C_52'
+  Structuring 'operator_C_51'
+  Mapping 'operator_C_51'
+  Structuring 'operator_C_50'
+  Mapping 'operator_C_50'
+  Structuring 'operator_C_49'
+  Mapping 'operator_C_49'
+  Structuring 'operator_C_48'
+  Mapping 'operator_C_48'
+  Structuring 'operator_C_47'
+  Mapping 'operator_C_47'
+  Structuring 'operator_C_46'
+  Mapping 'operator_C_46'
+  Structuring 'operator_C_45'
+  Mapping 'operator_C_45'
+  Structuring 'operator_C_44'
+  Mapping 'operator_C_44'
+  Structuring 'operator_C_43'
+  Mapping 'operator_C_43'
+  Structuring 'operator_C_42'
+  Mapping 'operator_C_42'
+  Structuring 'operator_C_41'
+  Mapping 'operator_C_41'
+  Structuring 'operator_C_40'
+  Mapping 'operator_C_40'
+  Structuring 'operator_C_39'
+  Mapping 'operator_C_39'
+  Structuring 'operator_C_38'
+  Mapping 'operator_C_38'
+  Structuring 'operator_C_37'
+  Mapping 'operator_C_37'
+  Structuring 'operator_C_36'
+  Mapping 'operator_C_36'
+  Structuring 'operator_C_35'
+  Mapping 'operator_C_35'
+  Structuring 'operator_C_34'
+  Mapping 'operator_C_34'
+  Structuring 'operator_C_33'
+  Mapping 'operator_C_33'
+  Structuring 'operator_C_32'
+  Mapping 'operator_C_32'
+  Structuring 'operator_C_31'
+  Mapping 'operator_C_31'
+  Structuring 'operator_C_30'
+  Mapping 'operator_C_30'
+  Structuring 'operator_C_29'
+  Mapping 'operator_C_29'
+  Structuring 'operator_C_28'
+  Mapping 'operator_C_28'
+  Structuring 'operator_C_27'
+  Mapping 'operator_C_27'
+  Structuring 'operator_C_26'
+  Mapping 'operator_C_26'
+  Structuring 'operator_C_25'
+  Mapping 'operator_C_25'
+  Structuring 'operator_C_24'
+  Mapping 'operator_C_24'
+  Structuring 'operator_C_23'
+  Mapping 'operator_C_23'
+  Structuring 'operator_C_22'
+  Mapping 'operator_C_22'
+  Structuring 'operator_C_21'
+  Mapping 'operator_C_21'
+  Structuring 'operator_C_20'
+  Mapping 'operator_C_20'
+  Structuring 'operator_C_19'
+  Mapping 'operator_C_19'
+  Structuring 'operator_C_18'
+  Mapping 'operator_C_18'
+  Structuring 'operator_C_17'
+  Mapping 'operator_C_17'
+  Structuring 'operator_C_16'
+  Mapping 'operator_C_16'
+  Structuring 'operator_C_15'
+  Mapping 'operator_C_15'
+  Structuring 'operator_C_14'
+  Mapping 'operator_C_14'
+  Structuring 'operator_C_13'
+  Mapping 'operator_C_13'
+  Structuring 'operator_C_12'
+  Mapping 'operator_C_12'
+  Structuring 'operator_C_11'
+  Mapping 'operator_C_11'
+  Structuring 'operator_C_10'
+  Mapping 'operator_C_10'
+  Structuring 'operator_C_9'
+  Mapping 'operator_C_9'
+  Structuring 'operator_C_8'
+  Mapping 'operator_C_8'
+  Structuring 'operator_C_7'
+  Mapping 'operator_C_7'
+  Structuring 'operator_C_6'
+  Mapping 'operator_C_6'
+  Structuring 'operator_C_5'
+  Mapping 'operator_C_5'
+  Structuring 'operator_C_4'
+  Mapping 'operator_C_4'
+  Structuring 'operator_C_3'
+  Mapping 'operator_C_3'
+  Structuring 'operator_C_2'
+  Mapping 'operator_C_2'
+  Structuring 'operator_C_1'
+  Mapping 'operator_C_1'
+  Structuring 'operator_B_97'
+  Mapping 'operator_B_97'
+  Structuring 'operator_B_96'
+  Mapping 'operator_B_96'
+  Structuring 'operator_B_95'
+  Mapping 'operator_B_95'
+  Structuring 'operator_B_94'
+  Mapping 'operator_B_94'
+  Structuring 'operator_B_93'
+  Mapping 'operator_B_93'
+  Structuring 'operator_B_92'
+  Mapping 'operator_B_92'
+  Structuring 'operator_B_91'
+  Mapping 'operator_B_91'
+  Structuring 'operator_B_90'
+  Mapping 'operator_B_90'
+  Structuring 'operator_B_89'
+  Mapping 'operator_B_89'
+  Structuring 'operator_B_88'
+  Mapping 'operator_B_88'
+  Structuring 'operator_B_87'
+  Mapping 'operator_B_87'
+  Structuring 'operator_B_86'
+  Mapping 'operator_B_86'
+  Structuring 'operator_B_85'
+  Mapping 'operator_B_85'
+  Structuring 'operator_B_84'
+  Mapping 'operator_B_84'
+  Structuring 'operator_B_83'
+  Mapping 'operator_B_83'
+  Structuring 'operator_B_82'
+  Mapping 'operator_B_82'
+  Structuring 'operator_B_81'
+  Mapping 'operator_B_81'
+  Structuring 'operator_B_80'
+  Mapping 'operator_B_80'
+  Structuring 'operator_B_79'
+  Mapping 'operator_B_79'
+  Structuring 'operator_B_78'
+  Mapping 'operator_B_78'
+  Structuring 'operator_B_77'
+  Mapping 'operator_B_77'
+  Structuring 'operator_B_76'
+  Mapping 'operator_B_76'
+  Structuring 'operator_B_75'
+  Mapping 'operator_B_75'
+  Structuring 'operator_B_74'
+  Mapping 'operator_B_74'
+  Structuring 'operator_B_73'
+  Mapping 'operator_B_73'
+  Structuring 'operator_B_72'
+  Mapping 'operator_B_72'
+  Structuring 'operator_B_71'
+  Mapping 'operator_B_71'
+  Structuring 'operator_B_70'
+  Mapping 'operator_B_70'
+  Structuring 'operator_B_69'
+  Mapping 'operator_B_69'
+  Structuring 'operator_B_68'
+  Mapping 'operator_B_68'
+  Structuring 'operator_B_67'
+  Mapping 'operator_B_67'
+  Structuring 'operator_B_66'
+  Mapping 'operator_B_66'
+  Structuring 'operator_B_65'
+  Mapping 'operator_B_65'
+  Structuring 'operator_B_64'
+  Mapping 'operator_B_64'
+  Structuring 'operator_B_63'
+  Mapping 'operator_B_63'
+  Structuring 'operator_B_62'
+  Mapping 'operator_B_62'
+  Structuring 'operator_B_61'
+  Mapping 'operator_B_61'
+  Structuring 'operator_B_60'
+  Mapping 'operator_B_60'
+  Structuring 'operator_B_59'
+  Mapping 'operator_B_59'
+  Structuring 'operator_B_58'
+  Mapping 'operator_B_58'
+  Structuring 'operator_B_57'
+  Mapping 'operator_B_57'
+  Structuring 'operator_B_56'
+  Mapping 'operator_B_56'
+  Structuring 'operator_B_55'
+  Mapping 'operator_B_55'
+  Structuring 'operator_B_54'
+  Mapping 'operator_B_54'
+  Structuring 'operator_B_53'
+  Mapping 'operator_B_53'
+  Structuring 'operator_B_52'
+  Mapping 'operator_B_52'
+  Structuring 'operator_B_51'
+  Mapping 'operator_B_51'
+  Structuring 'operator_B_50'
+  Mapping 'operator_B_50'
+  Structuring 'operator_B_49'
+  Mapping 'operator_B_49'
+  Structuring 'operator_B_48'
+  Mapping 'operator_B_48'
+  Structuring 'operator_B_47'
+  Mapping 'operator_B_47'
+  Structuring 'operator_B_46'
+  Mapping 'operator_B_46'
+  Structuring 'operator_B_45'
+  Mapping 'operator_B_45'
+  Structuring 'operator_B_44'
+  Mapping 'operator_B_44'
+  Structuring 'operator_B_43'
+  Mapping 'operator_B_43'
+  Structuring 'operator_B_42'
+  Mapping 'operator_B_42'
+  Structuring 'operator_B_41'
+  Mapping 'operator_B_41'
+  Structuring 'operator_B_40'
+  Mapping 'operator_B_40'
+  Structuring 'operator_B_39'
+  Mapping 'operator_B_39'
+  Structuring 'operator_B_38'
+  Mapping 'operator_B_38'
+  Structuring 'operator_B_37'
+  Mapping 'operator_B_37'
+  Structuring 'operator_B_36'
+  Mapping 'operator_B_36'
+  Structuring 'operator_B_35'
+  Mapping 'operator_B_35'
+  Structuring 'operator_B_34'
+  Mapping 'operator_B_34'
+  Structuring 'operator_B_33'
+  Mapping 'operator_B_33'
+  Structuring 'operator_B_32'
+  Mapping 'operator_B_32'
+  Structuring 'operator_B_31'
+  Mapping 'operator_B_31'
+  Structuring 'operator_B_30'
+  Mapping 'operator_B_30'
+  Structuring 'operator_B_29'
+  Mapping 'operator_B_29'
+  Structuring 'operator_B_28'
+  Mapping 'operator_B_28'
+  Structuring 'operator_B_27'
+  Mapping 'operator_B_27'
+  Structuring 'operator_B_26'
+  Mapping 'operator_B_26'
+  Structuring 'operator_B_25'
+  Mapping 'operator_B_25'
+  Structuring 'operator_B_24'
+  Mapping 'operator_B_24'
+  Structuring 'operator_B_23'
+  Mapping 'operator_B_23'
+  Structuring 'operator_B_22'
+  Mapping 'operator_B_22'
+  Structuring 'operator_B_21'
+  Mapping 'operator_B_21'
+  Structuring 'operator_B_20'
+  Mapping 'operator_B_20'
+  Structuring 'operator_B_19'
+  Mapping 'operator_B_19'
+  Structuring 'operator_B_18'
+  Mapping 'operator_B_18'
+  Structuring 'operator_B_17'
+  Mapping 'operator_B_17'
+  Structuring 'operator_B_16'
+  Mapping 'operator_B_16'
+  Structuring 'operator_B_15'
+  Mapping 'operator_B_15'
+  Structuring 'operator_B_14'
+  Mapping 'operator_B_14'
+  Structuring 'operator_B_13'
+  Mapping 'operator_B_13'
+  Structuring 'operator_B_12'
+  Mapping 'operator_B_12'
+  Structuring 'operator_B_11'
+  Mapping 'operator_B_11'
+  Structuring 'operator_B_10'
+  Mapping 'operator_B_10'
+  Structuring 'operator_B_9'
+  Mapping 'operator_B_9'
+  Structuring 'operator_B_8'
+  Mapping 'operator_B_8'
+  Structuring 'operator_B_7'
+  Mapping 'operator_B_7'
+  Structuring 'operator_B_6'
+  Mapping 'operator_B_6'
+  Structuring 'operator_B_5'
+  Mapping 'operator_B_5'
+  Structuring 'operator_B_4'
+  Mapping 'operator_B_4'
+  Structuring 'operator_B_3'
+  Mapping 'operator_B_3'
+  Structuring 'operator_B_2'
+  Mapping 'operator_B_2'
+  Structuring 'operator_B_1'
+  Mapping 'operator_B_1'
+  Structuring 'operator_A_63'
+  Mapping 'operator_A_63'
+  Structuring 'operator_A_62'
+  Mapping 'operator_A_62'
+  Structuring 'operator_A_61'
+  Mapping 'operator_A_61'
+  Structuring 'operator_A_60'
+  Mapping 'operator_A_60'
+  Structuring 'operator_A_59'
+  Mapping 'operator_A_59'
+  Structuring 'operator_A_58'
+  Mapping 'operator_A_58'
+  Structuring 'operator_A_57'
+  Mapping 'operator_A_57'
+  Structuring 'operator_A_56'
+  Mapping 'operator_A_56'
+  Structuring 'operator_A_55'
+  Mapping 'operator_A_55'
+  Structuring 'operator_A_54'
+  Mapping 'operator_A_54'
+  Structuring 'operator_A_53'
+  Mapping 'operator_A_53'
+  Structuring 'operator_A_52'
+  Mapping 'operator_A_52'
+  Structuring 'operator_A_51'
+  Mapping 'operator_A_51'
+  Structuring 'operator_A_50'
+  Mapping 'operator_A_50'
+  Structuring 'operator_A_49'
+  Mapping 'operator_A_49'
+  Structuring 'operator_A_48'
+  Mapping 'operator_A_48'
+  Structuring 'operator_A_47'
+  Mapping 'operator_A_47'
+  Structuring 'operator_A_46'
+  Mapping 'operator_A_46'
+  Structuring 'operator_A_45'
+  Mapping 'operator_A_45'
+  Structuring 'operator_A_44'
+  Mapping 'operator_A_44'
+  Structuring 'operator_A_43'
+  Mapping 'operator_A_43'
+  Structuring 'operator_A_42'
+  Mapping 'operator_A_42'
+  Structuring 'operator_A_41'
+  Mapping 'operator_A_41'
+  Structuring 'operator_A_40'
+  Mapping 'operator_A_40'
+  Structuring 'operator_A_39'
+  Mapping 'operator_A_39'
+  Structuring 'operator_A_38'
+  Mapping 'operator_A_38'
+  Structuring 'operator_A_37'
+  Mapping 'operator_A_37'
+  Structuring 'operator_A_36'
+  Mapping 'operator_A_36'
+  Structuring 'operator_A_35'
+  Mapping 'operator_A_35'
+  Structuring 'operator_A_34'
+  Mapping 'operator_A_34'
+  Structuring 'operator_A_33'
+  Mapping 'operator_A_33'
+  Structuring 'operator_A_32'
+  Mapping 'operator_A_32'
+  Structuring 'operator_A_31'
+  Mapping 'operator_A_31'
+  Structuring 'operator_A_30'
+  Mapping 'operator_A_30'
+  Structuring 'operator_A_29'
+  Mapping 'operator_A_29'
+  Structuring 'operator_A_28'
+  Mapping 'operator_A_28'
+  Structuring 'operator_A_27'
+  Mapping 'operator_A_27'
+  Structuring 'operator_A_26'
+  Mapping 'operator_A_26'
+  Structuring 'operator_A_25'
+  Mapping 'operator_A_25'
+  Structuring 'operator_A_24'
+  Mapping 'operator_A_24'
+  Structuring 'operator_A_23'
+  Mapping 'operator_A_23'
+  Structuring 'operator_A_22'
+  Mapping 'operator_A_22'
+  Structuring 'operator_A_21'
+  Mapping 'operator_A_21'
+  Structuring 'operator_A_20'
+  Mapping 'operator_A_20'
+  Structuring 'operator_A_19'
+  Mapping 'operator_A_19'
+  Structuring 'operator_A_18'
+  Mapping 'operator_A_18'
+  Structuring 'operator_A_17'
+  Mapping 'operator_A_17'
+  Structuring 'operator_A_16'
+  Mapping 'operator_A_16'
+  Structuring 'operator_A_15'
+  Mapping 'operator_A_15'
+  Structuring 'operator_A_14'
+  Mapping 'operator_A_14'
+  Structuring 'operator_A_13'
+  Mapping 'operator_A_13'
+  Structuring 'operator_A_12'
+  Mapping 'operator_A_12'
+  Structuring 'operator_A_11'
+  Mapping 'operator_A_11'
+  Structuring 'operator_A_10'
+  Mapping 'operator_A_10'
+  Structuring 'operator_A_9'
+  Mapping 'operator_A_9'
+  Structuring 'operator_A_8'
+  Mapping 'operator_A_8'
+  Structuring 'operator_A_7'
+  Mapping 'operator_A_7'
+  Structuring 'operator_A_6'
+  Mapping 'operator_A_6'
+  Structuring 'operator_A_5'
+  Mapping 'operator_A_5'
+  Structuring 'operator_A_4'
+  Mapping 'operator_A_4'
+  Structuring 'operator_A_3'
+  Mapping 'operator_A_3'
+  Structuring 'operator_A_2'
+  Mapping 'operator_A_2'
+  Structuring 'operator_A_1'
+  Mapping 'operator_A_1'
+  Structuring 'adder_32bit_1'
+  Mapping 'adder_32bit_1'
+  Structuring 'operator_B_0'
+  Mapping 'operator_B_0'
+  Structuring 'operator_C_0'
+  Mapping 'operator_C_0'
+  Structuring 'operator_A_0'
+  Mapping 'operator_A_0'
+  Structuring 'shift_7b'
+  Mapping 'shift_7b'
+  Structuring 'shift_3b_0'
+  Mapping 'shift_3b_0'
+  Structuring 'shift_1b_0'
+  Mapping 'shift_1b_0'
+  Structuring 'adder_32bit_0'
+  Mapping 'adder_32bit_0'
+  Structuring 'shifter'
+  Mapping 'shifter'
+  Structuring 'divider_dshift'
+  Mapping 'divider_dshift'
+Information: The register 'shifted_reg[4]' is a constant and will be removed. (OPT-1206)
 
    ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
     TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
   --------- --------- --------- --------- --------- -------------------------
-    0:00:02    2385.8      0.00       0.0     868.1                          
-    0:00:02    2385.8      0.00       0.0     868.1                          
-    0:00:02    2385.8      0.00       0.0     868.1                          
-    0:00:02    2385.8      0.00       0.0     868.1                          
-    0:00:02    2385.8      0.00       0.0     868.1                          
-    0:00:03    2317.1      0.00       0.0     672.4                          
-    0:00:03    2317.1      0.00       0.0     672.4                          
-    0:00:03    2317.1      0.00       0.0     672.4                          
-    0:00:03    2317.1      0.00       0.0     672.4                          
-    0:00:03    2317.1      0.00       0.0     672.4                          
-    0:00:03    2319.3      0.00       0.0     456.2                          
-    0:00:03    2320.1      0.00       0.0     397.9                          
-    0:00:03    2320.1      0.00       0.0     397.9                          
-    0:00:03    2320.1      0.00       0.0     397.9                          
-    0:00:03    2320.1      0.00       0.0     397.9                          
+    0:00:07    4682.7      0.00       0.0    1342.9                          
+    0:00:07    4682.7      0.00       0.0    1342.9                          
+    0:00:07    4682.7      0.00       0.0    1342.9                          
+    0:00:07    4682.7      0.00       0.0    1342.9                          
+    0:00:07    4682.7      0.00       0.0    1342.9                          
+    0:00:07    4662.7      0.00       0.0    1342.9                          
+    0:00:07    4662.7      0.00       0.0    1342.9                          
+    0:00:07    4662.7      0.00       0.0    1342.9                          
+    0:00:07    4662.7      0.00       0.0    1342.9                          
+    0:00:07    4662.7      0.00       0.0    1342.9                          
+    0:00:07    4673.1      0.00       0.0     885.2                          
+    0:00:07    4676.8      0.00       0.0     710.1                          
+    0:00:07    4689.3      0.00       0.0     646.3                          
+    0:00:07    4689.8      0.00       0.0     639.4                          
+    0:00:07    4689.8      0.00       0.0     639.4                          
+    0:00:07    4689.8      0.00       0.0     639.4                          
+    0:00:07    4689.8      0.00       0.0     639.4                          
 
 
 
@@ -660,9 +711,9 @@ Information: Design 'multdiv' has no optimization constraints set. (OPT-108)
    ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
     TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
   --------- --------- --------- --------- --------- -------------------------
-    0:00:03    2320.1      0.00       0.0     397.9                          
-    0:00:03    2320.1      0.00       0.0     397.9                          
-    0:00:03    2320.1      0.00       0.0     397.9                          
+    0:00:07    4689.8      0.00       0.0     639.4                          
+    0:00:07    4689.8      0.00       0.0     639.4                          
+    0:00:07    4689.8      0.00       0.0     639.4                          
 
 
   Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
@@ -671,8 +722,8 @@ Information: Design 'multdiv' has no optimization constraints set. (OPT-108)
    ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
     TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
   --------- --------- --------- --------- --------- -------------------------
-    0:00:03    2320.1      0.00       0.0     397.9                          
-    0:00:03    2323.5      0.00       0.0       0.0                          
+    0:00:07    4689.8      0.00       0.0     639.4                          
+    0:00:07    4705.5      0.00       0.0       0.0                          
 
 
   Beginning Area-Recovery Phase  (cleanup)
@@ -681,17 +732,21 @@ Information: Design 'multdiv' has no optimization constraints set. (OPT-108)
    ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
     TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
   --------- --------- --------- --------- --------- -------------------------
-    0:00:03    2323.5      0.00       0.0       0.0                          
-    0:00:03    2323.5      0.00       0.0       0.0                          
-    0:00:03    2323.5      0.00       0.0       0.0                          
-    0:00:03    2323.5      0.00       0.0       0.0                          
-    0:00:03    2323.5      0.00       0.0       0.0                          
-    0:00:03    2323.5      0.00       0.0       0.0                          
-    0:00:03    2323.5      0.00       0.0       0.0                          
-    0:00:03    2323.5      0.00       0.0       0.0                          
-    0:00:03    2323.5      0.00       0.0       0.0                          
-    0:00:03    2323.5      0.00       0.0       0.0                          
-    0:00:03    2323.5      0.00       0.0       0.0                          
+    0:00:07    4705.5      0.00       0.0       0.0                          
+    0:00:07    4705.5      0.00       0.0       0.0                          
+    0:00:07    4658.2      0.00       0.0       0.0                          
+    0:00:07    4656.1      0.00       0.0       0.0                          
+    0:00:07    4654.5      0.00       0.0       0.0                          
+    0:00:07    4654.5      0.00       0.0       0.0                          
+    0:00:07    4654.5      0.00       0.0       0.0                          
+    0:00:07    4654.5      0.00       0.0       0.0                          
+    0:00:07    4654.5      0.00       0.0       0.0                          
+    0:00:07    4643.0      0.00       0.0       0.0                          
+    0:00:07    4643.0      0.00       0.0       0.0                          
+    0:00:07    4643.0      0.00       0.0       0.0                          
+    0:00:07    4643.0      0.00       0.0       0.0                          
+    0:00:07    4643.0      0.00       0.0       0.0                          
+    0:00:07    4643.0      0.00       0.0       0.0                          
 Loading db file '/winhomes/oar5/project/compilation/NangateOpenCellLibrary.db'
 
   Optimization Complete
@@ -701,7 +756,7 @@ uniquify -dont_skip_empty_designs
 1
 #set set_ultra_optimization true
 set all_input_but_clock  [remove_from_collection [all_inputs] $clk_pin]
-{data_operandA[31] data_operandA[30] data_operandA[29] data_operandA[28] data_operandA[27] data_operandA[26] data_operandA[25] data_operandA[24] data_operandA[23] data_operandA[22] data_operandA[21] data_operandA[20] data_operandA[19] data_operandA[18] data_operandA[17] data_operandA[16] data_operandA[15] data_operandA[14] data_operandA[13] data_operandA[12] data_operandA[11] data_operandA[10] data_operandA[9] data_operandA[8] data_operandA[7] data_operandA[6] data_operandA[5] data_operandA[4] data_operandA[3] data_operandA[2] data_operandA[1] data_operandA[0] data_operandB[31] data_operandB[30] data_operandB[29] data_operandB[28] data_operandB[27] data_operandB[26] data_operandB[25] data_operandB[24] data_operandB[23] data_operandB[22] data_operandB[21] data_operandB[20] data_operandB[19] data_operandB[18] data_operandB[17] data_operandB[16] data_operandB[15] data_operandB[14] data_operandB[13] data_operandB[12] data_operandB[11] data_operandB[10] data_operandB[9] data_operandB[8] data_operandB[7] data_operandB[6] data_operandB[5] data_operandB[4] data_operandB[3] data_operandB[2] data_operandB[1] data_operandB[0] ctrl_MULT ctrl_DIV}
+{i_rst i_dividend[31] i_dividend[30] i_dividend[29] i_dividend[28] i_dividend[27] i_dividend[26] i_dividend[25] i_dividend[24] i_dividend[23] i_dividend[22] i_dividend[21] i_dividend[20] i_dividend[19] i_dividend[18] i_dividend[17] i_dividend[16] i_dividend[15] i_dividend[14] i_dividend[13] i_dividend[12] i_dividend[11] i_dividend[10] i_dividend[9] i_dividend[8] i_dividend[7] i_dividend[6] i_dividend[5] i_dividend[4] i_dividend[3] i_dividend[2] i_dividend[1] i_dividend[0] i_divisor[31] i_divisor[30] i_divisor[29] i_divisor[28] i_divisor[27] i_divisor[26] i_divisor[25] i_divisor[24] i_divisor[23] i_divisor[22] i_divisor[21] i_divisor[20] i_divisor[19] i_divisor[18] i_divisor[17] i_divisor[16] i_divisor[15] i_divisor[14] i_divisor[13] i_divisor[12] i_divisor[11] i_divisor[10] i_divisor[9] i_divisor[8] i_divisor[7] i_divisor[6] i_divisor[5] i_divisor[4] i_divisor[3] i_divisor[2] i_divisor[1] i_divisor[0] i_start}
 ###################################################################
 ##...............define generated clock............................
 create_clock -period  2  [get_ports $clk_pin]
@@ -729,232 +784,97 @@ check_design
 ****************************************
 check_design summary:
 Version:     F-2011.09
-Date:        Wed Apr 28 12:35:50 2021
+Date:        Thu Apr 29 00:21:30 2021
 ****************************************
 
                    Name                                            Total
 --------------------------------------------------------------------------------
-Cells                                                             108
-    Connected to power or ground (LINT-32)                         75
-    Nets connected to multiple pins on same cell (LINT-33)         33
+Inputs/Outputs                                                      4
+    Unconnected ports (LINT-28)                                     2
+    Feedthrough (LINT-29)                                           1
+    Constant outputs (LINT-52)                                      1
+
+Cells                                                              36
+    Connected to power or ground (LINT-32)                         33
+    Nets connected to multiple pins on same cell (LINT-33)          3
 --------------------------------------------------------------------------------
 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[31]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[30]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[29]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[28]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[27]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[26]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[25]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[24]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[23]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[22]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[21]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[20]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[19]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[18]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[17]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[16]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[15]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[14]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[13]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[12]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[11]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[10]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[9]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[8]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[7]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[6]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[5]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[4]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[3]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[2]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[1]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'nop_mux' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'in1[0]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'carry_in' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[31]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[30]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[29]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[28]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[27]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[26]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[25]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[24]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[23]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[22]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[21]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[20]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[19]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[18]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[17]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[16]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[15]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[14]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[13]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[12]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[11]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[10]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[9]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[8]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[7]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[6]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[5]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[4]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[3]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[2]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[1]' is connected to logic 0. 
-Warning: In design 'multdiv', a pin on submodule 'adder_sign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'operandB[0]' is connected to logic 1. 
-Warning: In design 'multdiv', a pin on submodule 'product_reg' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'clear' is connected to logic 0. 
-Warning: In design 'multdiv_ctrl', a pin on submodule 'counter' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'enable' is connected to logic 1. 
-Warning: In design 'multdiv_ctrl', a pin on submodule 'cur_mult' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'clr' is connected to logic 0. 
-Warning: In design 'multdiv_ctrl', a pin on submodule 'cur_div' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'clr' is connected to logic 0. 
-Warning: In design 'tff_0', a pin on submodule 'dffe' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'en' is connected to logic 1. 
-Warning: In design 'tff_1', a pin on submodule 'dffe' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'en' is connected to logic 1. 
-Warning: In design 'tff_2', a pin on submodule 'dffe' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'en' is connected to logic 1. 
-Warning: In design 'tff_3', a pin on submodule 'dffe' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'en' is connected to logic 1. 
-Warning: In design 'tff_4', a pin on submodule 'dffe' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'en' is connected to logic 1. 
-Warning: In design 'tff_5', a pin on submodule 'dffe' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'en' is connected to logic 1. 
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[30]' is connected to pins 'in0[30]', 'in1[31]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[29]' is connected to pins 'in0[29]', 'in1[30]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[28]' is connected to pins 'in0[28]', 'in1[29]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[27]' is connected to pins 'in0[27]', 'in1[28]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[26]' is connected to pins 'in0[26]', 'in1[27]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[25]' is connected to pins 'in0[25]', 'in1[26]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[24]' is connected to pins 'in0[24]', 'in1[25]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[23]' is connected to pins 'in0[23]', 'in1[24]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[22]' is connected to pins 'in0[22]', 'in1[23]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[21]' is connected to pins 'in0[21]', 'in1[22]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[20]' is connected to pins 'in0[20]', 'in1[21]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[19]' is connected to pins 'in0[19]', 'in1[20]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[18]' is connected to pins 'in0[18]', 'in1[19]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[17]' is connected to pins 'in0[17]', 'in1[18]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[16]' is connected to pins 'in0[16]', 'in1[17]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[15]' is connected to pins 'in0[15]', 'in1[16]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[14]' is connected to pins 'in0[14]', 'in1[15]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[13]' is connected to pins 'in0[13]', 'in1[14]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[12]' is connected to pins 'in0[12]', 'in1[13]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[11]' is connected to pins 'in0[11]', 'in1[12]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[10]' is connected to pins 'in0[10]', 'in1[11]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[9]' is connected to pins 'in0[9]', 'in1[10]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[8]' is connected to pins 'in0[8]', 'in1[9]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[7]' is connected to pins 'in0[7]', 'in1[8]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[6]' is connected to pins 'in0[6]', 'in1[7]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[5]' is connected to pins 'in0[5]', 'in1[6]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[4]' is connected to pins 'in0[4]', 'in1[5]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[3]' is connected to pins 'in0[3]', 'in1[4]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[2]' is connected to pins 'in0[2]', 'in1[3]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[1]' is connected to pins 'in0[1]', 'in1[2]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'shift_booth_mux'. (LINT-33)
-   Net 'operandA[0]' is connected to pins 'in0[0]', 'in1[1]''.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'nop_mux'. (LINT-33)
-   Net '*Logic0*' is connected to pins 'in1[31]', 'in1[30]'', 'in1[29]', 'in1[28]', 'in1[27]', 'in1[26]', 'in1[25]', 'in1[24]', 'in1[23]', 'in1[22]', 'in1[21]', 'in1[20]', 'in1[19]', 'in1[18]', 'in1[17]', 'in1[16]', 'in1[15]', 'in1[14]', 'in1[13]', 'in1[12]', 'in1[11]', 'in1[10]', 'in1[9]', 'in1[8]', 'in1[7]', 'in1[6]', 'in1[5]', 'in1[4]', 'in1[3]', 'in1[2]', 'in1[1]', 'in1[0]'.
-Warning: In design 'multdiv', the same net is connected to more than one pin on submodule 'adder_sign'. (LINT-33)
-   Net '*Logic0*' is connected to pins 'carry_in', 'operandB[31]'', 'operandB[30]', 'operandB[29]', 'operandB[28]', 'operandB[27]', 'operandB[26]', 'operandB[25]', 'operandB[24]', 'operandB[23]', 'operandB[22]', 'operandB[21]', 'operandB[20]', 'operandB[19]', 'operandB[18]', 'operandB[17]', 'operandB[16]', 'operandB[15]', 'operandB[14]', 'operandB[13]', 'operandB[12]', 'operandB[11]', 'operandB[10]', 'operandB[9]', 'operandB[8]', 'operandB[7]', 'operandB[6]', 'operandB[5]', 'operandB[4]', 'operandB[3]', 'operandB[2]', 'operandB[1]'.
+Warning: In design 'divider_dshift_DW_rash_0', port 'DATA_TC' is not connected to any nets. (LINT-28)
+Warning: In design 'divider_dshift_DW_rash_0', port 'SH_TC' is not connected to any nets. (LINT-28)
+Warning: In design 'divider_dshift_DW_rash_0', input port 'A[31]' is connected directly to output port 'B[31]'. (LINT-29)
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[31]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[30]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[29]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[28]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[27]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[26]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[25]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[24]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[23]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[22]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[21]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[20]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[19]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[18]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[17]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[16]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[15]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[14]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[13]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[12]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[11]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[10]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[9]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[8]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[7]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_a[6]' is connected to logic 0. 
+Warning: In design 'divider_dshift', a pin on submodule 'sra_198' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'DATA_TC' is connected to logic 1. 
+Warning: In design 'divider_dshift', a pin on submodule 'sra_198' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'SH_TC' is connected to logic 0. 
+Warning: In design 'shifter', a pin on submodule 'shift_3b_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_shift[0]' is connected to logic 0. 
+Warning: In design 'shifter', a pin on submodule 'shift_3b_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_shift[0]' is connected to logic 0. 
+Warning: In design 'shifter', a pin on submodule 'shift_7b_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_shift[2]' is connected to logic 0. 
+Warning: In design 'shifter', a pin on submodule 'shift_7b_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_shift[1]' is connected to logic 0. 
+Warning: In design 'shifter', a pin on submodule 'shift_7b_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_shift[0]' is connected to logic 0. 
+Warning: In design 'divider_dshift', the same net is connected to more than one pin on submodule 'adder_1'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'i_a[31]', 'i_a[30]'', 'i_a[29]', 'i_a[28]', 'i_a[27]', 'i_a[26]', 'i_a[25]', 'i_a[24]', 'i_a[23]', 'i_a[22]', 'i_a[21]', 'i_a[20]', 'i_a[19]', 'i_a[18]', 'i_a[17]', 'i_a[16]', 'i_a[15]', 'i_a[14]', 'i_a[13]', 'i_a[12]', 'i_a[11]', 'i_a[10]', 'i_a[9]', 'i_a[8]', 'i_a[7]', 'i_a[6]'.
+Warning: In design 'divider_dshift', the same net is connected to more than one pin on submodule 'adder_1'. (LINT-33)
+   Net 'n1357' is connected to pins 'i_b[31]', 'i_b[30]'', 'i_b[29]', 'i_b[28]', 'i_b[27]', 'i_b[26]', 'i_b[25]', 'i_b[24]', 'i_b[23]', 'i_b[22]', 'i_b[21]', 'i_b[20]', 'i_b[19]', 'i_b[18]', 'i_b[17]', 'i_b[16]', 'i_b[15]', 'i_b[14]', 'i_b[13]', 'i_b[12]', 'i_b[11]', 'i_b[10]', 'i_b[9]', 'i_b[8]', 'i_b[7]', 'i_b[6]', 'i_b[5]', 'i_c'.
+Warning: In design 'shifter', the same net is connected to more than one pin on submodule 'shift_7b_0'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'i_shift[2]', 'i_shift[1]'', 'i_shift[0]'.
+Warning: In design 'shifter', output port 'o_shifted[4]' is connected directly to 'logic 0'. (LINT-52)
 1
 set_max_area 0
 1
@@ -968,48 +888,61 @@ set_fix_multiple_port_nets -all -buffer_constants
 1
 compile
 
-Information: There are 108 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+Information: There are 40 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
 
 
 
   Beginning Pass 1 Mapping
   ------------------------
-  Processing 'dffe_ref_9'
-  Processing 'reg65'
-  Processing 'cla_8_1'
-  Processing 'cla_32_1'
-  Processing 'mux32_2_1'
-  Processing 'not32_2'
-  Processing 'tff_1'
-  Processing 'multdiv_counters'
-  Processing 'decoder8'
-  Processing 'multdiv_ctrl'
-  Processing 'multdiv'
+  Processing 'divider_dshift_DW01_inc_1'
+  Processing 'divider_dshift_DW01_inc_0'
+  Processing 'divider_dshift_DW_rash_0'
+  Processing 'operator_C_1'
+  Processing 'operator_B_1'
+  Processing 'operator_A_1'
+  Processing 'adder_32bit_1'
+  Processing 'shift_1b_1'
+  Processing 'shift_3b_1'
+  Processing 'shift_7b'
+  Processing 'shift_1b_2'
+  Processing 'shift_3b_2'
+  Processing 'shift_3b_0'
+  Processing 'shift_1b_0'
+  Processing 'shifter'
+  Processing 'divider_dshift'
 
   Updating timing information
 Information: Updating design information... (UID-85)
 
+  Beginning Implementation Selection
+  ----------------------------------
+
   Beginning Mapping Optimizations  (Medium effort)
   -------------------------------
+Information: The register 'shifted_1_reg[4]' is a constant and will be removed. (OPT-1206)
 
    ELAPSED            WORST NEG TOTAL NEG  DESIGN                             MIN DELAY
     TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT            COST   
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:02    3223.7      1.74      45.6       0.0                                0.00
-    0:00:02    3223.7      1.74      45.6       0.0                                0.00
-    0:00:02    3223.7      1.74      45.6       0.0                                0.00
-    0:00:02    3222.9      1.74      45.6       0.0                                0.00
-    0:00:02    3222.9      1.74      45.6       0.0                                0.00
-    0:00:02    2392.7      1.74      35.2       0.0                                0.00
-    0:00:03    2394.3      1.72      34.6       0.0                                0.00
-    0:00:03    2394.3      1.72      34.6       0.0                                0.00
-    0:00:03    2394.3      1.72      34.6       0.0                                0.00
-    0:00:03    2394.3      1.72      34.6       0.0                                0.00
-    0:00:03    2394.0      1.72      34.6       0.0                                0.00
-    0:00:03    2394.0      1.72      34.6       0.0                                0.00
-    0:00:03    2394.0      1.72      34.6       0.0                                0.00
-    0:00:03    2394.0      1.72      34.6       0.0                                0.00
-    0:00:03    2394.0      1.72      34.6       0.0                                0.00
+    0:00:03    6499.2      0.24      11.8       0.0                                0.00
+    0:00:03    6498.4      0.24      11.3       0.0                                0.00
+    0:00:03    6498.4      0.24      11.3       0.0                                0.00
+    0:00:03    6497.3      0.24      11.3       0.0                                0.00
+    0:00:03    6497.3      0.24      11.3       0.0                                0.00
+    0:00:04    4817.0      0.24       2.5       0.0                                0.00
+    0:00:04    4816.5      0.23       2.1       0.0                                0.00
+    0:00:04    4819.4      0.23       2.0       0.0                                0.00
+    0:00:04    4828.2      0.22       1.9       0.0                                0.00
+    0:00:04    4826.8      0.21       1.8       0.0                                0.00
+    0:00:04    4831.6      0.20       1.8       0.0                                0.00
+    0:00:04    4831.6      0.19       1.7       0.0                                0.00
+    0:00:04    4831.6      0.18       1.6       0.0                                0.00
+    0:00:04    4831.6      0.17       1.5       0.0                                0.00
+    0:00:04    4831.6      0.17       1.5       0.0                                0.00
+    0:00:04    4831.6      0.17       1.5       0.0                                0.00
+    0:00:04    4831.6      0.17       1.5       0.0                                0.00
+    0:00:04    4831.6      0.17       1.5       0.0                                0.00
+    0:00:04    4831.6      0.17       1.5       0.0                                0.00
 
 
 
@@ -1019,56 +952,11 @@ Information: Updating design information... (UID-85)
    ELAPSED            WORST NEG TOTAL NEG  DESIGN                             MIN DELAY
     TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT            COST   
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:03    2394.0      1.72      34.6       0.0                                0.00
-    0:00:03    2403.6      1.57      32.3       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:03    2413.2      1.46      30.6       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:03    2423.8      1.34      28.7       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:03    2425.7      1.31      27.9       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:03    2434.7      1.22      26.6       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:04    2439.8      1.20      25.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:04    2440.8      1.19      25.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:04    2442.9      1.16      25.1       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:04    2445.6      1.15      24.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:04    2450.9      1.13      23.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:04    2452.0      1.12      23.7       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:04    2450.1      1.11      23.4       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:04    2451.2      1.10      23.1       0.0 product_reg/memory[32].dff/q_reg/D      0.00
-    0:00:04    2452.5      1.10      22.9       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:04    2452.3      1.08      22.6       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:05    2452.5      1.07      22.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:05    2453.3      1.07      22.4       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:05    2456.8      1.04      22.0       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:05    2464.2      1.03      21.0       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:05    2464.2      1.03      20.9       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:05    2464.5      1.03      20.9       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:05    2465.0      1.02      20.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:05    2465.0      1.02      20.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:05    2467.2      1.02      20.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:06    2468.5      1.01      20.6       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:06    2468.7      1.00      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:06    2469.8      1.00      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:06    2470.6      0.99      20.4       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:06    2471.4      0.98      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:06    2471.4      0.98      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:06    2472.2      0.98      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:06    2472.2      0.98      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:07    2471.1      0.98      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:07    2472.5      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:07    2472.5      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:07    2473.3      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:07    2472.5      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:08    2472.5      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:08    2473.3      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:08    2473.3      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:08    2474.3      0.97      20.5       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:08    2473.5      0.96      20.4       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:09    2472.7      0.96      20.4       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:09    2473.3      0.96      20.4       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:09    2475.7      0.96      20.3       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:10    2478.1      0.95      20.2       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:10    2491.4      0.89      18.2       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:10    2491.1      0.85      17.2       0.0                                0.00
-    0:00:10    2491.9      0.85      17.2       0.0                                0.00
+    0:00:04    4831.6      0.17       1.5       0.0                                0.00
+    0:00:04    4831.9      0.13       1.3       0.0 reg_b_reg[30]/D                0.00
+    0:00:05    4833.0      0.10       1.1       0.0 reg_a_reg[30]/D                0.00
+    0:00:05    4837.2      0.00       0.0       0.0                                0.00
+    0:00:06    4736.7      0.00       0.0       0.0                                0.00
 
 
   Beginning Design Rule Fixing  (min_path)
@@ -1077,21 +965,12 @@ Information: Updating design information... (UID-85)
    ELAPSED            WORST NEG TOTAL NEG  DESIGN                             MIN DELAY
     TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT            COST   
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:10    2491.9      0.85      17.2       0.0                               -0.09
-    0:00:11    2497.5      0.84      17.2       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:11    2504.9      0.84      15.7       0.0 product_reg/memory[32].dff/q_reg/D      0.00
-    0:00:11    2505.7      0.84      15.6       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:11    2509.2      0.84      15.6       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:11    2510.2      0.83      15.4       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:11    2512.6      0.82      15.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:11    2512.1      0.82      15.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:11    2512.1      0.82      15.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:11    2515.6      0.81      15.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:11    2518.2      0.81      15.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:12    2519.0      0.81      15.8       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:12    2519.0      0.81      15.2       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:12    2519.0      0.81      15.2       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:12    2518.0      0.80      15.2       0.0 product_reg/memory[63].dff/q_reg/D      0.00
+    0:00:06    4736.7      0.00       0.0       0.0                               -4.65
+    0:00:06    4759.5      0.00       0.0       0.0 reg_a_reg[21]/D               -3.78
+    0:00:07    4786.4      0.00       0.0       0.0 sdata_reg[2]/D                -2.20
+    0:00:07    4813.5      0.00       0.0       0.0 sdata_reg[14]/D               -0.73
+    0:00:08    4835.1      0.00       0.0       0.0 reg_a_reg[16]/D               -0.05
+    0:00:08    4839.1      0.00       0.0       0.0                                0.00
 
 
   Beginning Area-Recovery Phase  (max_area 0)
@@ -1100,35 +979,30 @@ Information: Updating design information... (UID-85)
    ELAPSED            WORST NEG TOTAL NEG  DESIGN                             MIN DELAY
     TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT            COST   
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:12    2518.0      0.80      15.2       0.0                                0.00
-    0:00:12    2518.0      0.80      15.2       0.0                                0.00
-    0:00:12    2489.5      0.80      15.1       0.0                                0.00
-    0:00:13    2475.1      0.80      15.0       0.0                                0.00
-    0:00:13    2464.5      0.80      15.0       0.0                                0.00
-    0:00:13    2458.4      0.80      15.0       0.0                                0.00
-    0:00:13    2457.8      0.80      15.0       0.0                                0.00
-    0:00:13    2457.8      0.80      15.0       0.0                                0.00
-    0:00:13    2456.5      0.80      14.9       0.0                                0.00
-    0:00:13    2454.6      0.80      15.0       0.0                                0.00
-    0:00:13    2454.6      0.80      15.0       0.0                                0.00
-    0:00:13    2454.6      0.80      15.0       0.0                                0.00
-    0:00:13    2454.6      0.80      15.0       0.0                                0.00
-    0:00:13    2454.6      0.80      15.0       0.0                                0.00
-    0:00:13    2454.6      0.80      15.0       0.0                                0.00
-    0:00:13    2454.6      0.80      15.0       0.0 product_reg/memory[63].dff/q_reg/D      0.00
-    0:00:13    2454.9      0.80      14.9       0.0                                0.00
-    0:00:13    2442.4      0.79      14.9       0.0                                0.00
-    0:00:14    2431.2      0.79      14.9       0.0                                0.00
-    0:00:14    2408.9      0.79      14.9       0.0                                0.00
-    0:00:14    2404.4      0.79      14.9       0.0                                0.00
-    0:00:14    2403.8      0.80      14.9       0.0                                0.00
-    0:00:14    2403.8      0.80      14.9       0.0                                0.00
-    0:00:14    2403.8      0.80      14.9       0.0                                0.00
-    0:00:14    2403.8      0.80      14.9       0.0                                0.00
-    0:00:14    2403.8      0.80      14.9       0.0                                0.00
-    0:00:14    2403.8      0.80      14.9       0.0                                0.00
-    0:00:15    2402.8      0.80      14.9       0.0                                0.00
-    0:00:15    2403.6      0.80      14.9       0.0 product_reg/memory[63].dff/q_reg/D      0.00
+    0:00:08    4839.1      0.00       0.0       0.0                                0.00
+    0:00:08    4839.1      0.00       0.0       0.0                                0.00
+    0:00:08    4826.0      0.00       0.0       0.0                                0.00
+    0:00:08    4819.9      0.01       0.0       0.0                                0.00
+    0:00:08    4815.7      0.01       0.0       0.0                                0.00
+    0:00:08    4811.9      0.01       0.0       0.0                                0.00
+    0:00:08    4810.6      0.01       0.0       0.0                                0.00
+    0:00:08    4810.6      0.01       0.0       0.0                                0.00
+    0:00:08    4811.4      0.00       0.0       0.0                                0.00
+    0:00:08    4799.7      0.00       0.0       0.0                                0.00
+    0:00:08    4799.7      0.00       0.0       0.0                                0.00
+    0:00:08    4799.7      0.00       0.0       0.0                                0.00
+    0:00:08    4799.7      0.00       0.0       0.0                                0.00
+    0:00:08    4799.7      0.00       0.0       0.0                                0.00
+    0:00:08    4799.7      0.00       0.0       0.0                                0.00
+    0:00:09    4743.8      0.00       0.0       0.0                                0.00
+    0:00:09    4715.1      0.00       0.0       0.0                                0.00
+    0:00:10    4690.4      0.00       0.0       0.0                                0.00
+    0:00:10    4690.4      0.00       0.0       0.0                                0.00
+    0:00:10    4690.4      0.00       0.0       0.0                                0.00
+    0:00:10    4690.4      0.00       0.0       0.0                                0.00
+    0:00:10    4690.4      0.00       0.0       0.0                                0.00
+    0:00:10    4690.4      0.00       0.0       0.0                                0.00
+    0:00:10    4690.9      0.00       0.0       0.0                                0.00
 Loading db file '/winhomes/oar5/project/compilation/NangateOpenCellLibrary.db'
 
   Optimization Complete
@@ -1144,7 +1018,7 @@ ungroup -all -flatten
 Information: Updating design information... (UID-85)
 1
 write  -h -format verilog -output "${top_module}_gatelevel.v"
-Writing verilog file '/winhomes/oar5/project/compilation/multdiv_gatelevel.v'.
+Writing verilog file '/winhomes/oar5/project/compilation/divider_dshift_gatelevel.v'.
 1
 exit
 

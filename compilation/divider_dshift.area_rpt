@@ -3,12 +3,12 @@
 Report : area
 Design : divider_dshift
 Version: F-2011.09
-Date   : Wed Apr 28 00:22:00 2021
+Date   : Thu Apr 29 00:21:55 2021
 ****************************************
 
 Library(s) Used:
 
-    nangate_scan (File: /winhomes/oar5/hw4/ECE538Hw4-main/compilation/nangate_scan.db)
+    nangate_scan (File: /winhomes/oar5/project/compilation/nangate_scan.db)
 
 Number of ports:                          138
 Number of nets:                          2579

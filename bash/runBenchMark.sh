@@ -3,11 +3,11 @@
 #  exit 1
 # fi
 
-export top=multdiv
-export clk=clock
+export top=divider_dshift
+export clk=i_clk
 bash/compile.sh $top $clk
 
 echo Running ATPG
 bash/run4small.sh 1
 
-push
+bash/faulty.sh
