@@ -40,10 +40,10 @@ run_build_model $top_module
  Warning: Rule B9 (undriven module internal net) was violated 8 times.
  Warning: Rule B10 (unconnected module internal net) was violated 8 times.
  Warning: Rule N21 (unsupported UDP entry) was violated 2 times.
- End build model: #primitives=5439, CPU_time=0.01 sec, Memory=2MB
+ End build model: #primitives=5439, CPU_time=0.02 sec, Memory=2MB
  ------------------------------------------------------------------------------
  Begin learning analyses...
- End learning analyses, total learning CPU time=0.10 sec.
+ End learning analyses, total learning CPU time=0.11 sec.
  ------------------------------------------------------------------------------
 set_drc $stil_file
 add_clocks 0 $::env(clk)
@@ -92,10 +92,10 @@ add_faults -all
  17862 faults were added to fault list.
 set_patterns -external ./SDD/pattern_sdd_slack.stil
  End parsing STIL file ./SDD/pattern_sdd_slack.stil with 0 errors.
- End reading 674 patterns, CPU_time = 0.13 sec, Memory = 0MB
+ End reading 674 patterns, CPU_time = 0.12 sec, Memory = 0MB
 run_simulation -override_differences
  Begin good simulation of 674 external patterns.
- Simulation completed: #patterns=674, #fail_pats=0(0), #failing_meas=0(0), #rejected_pats=0, CPU time=0.01
+ Simulation completed: #patterns=674, #fail_pats=0(0), #failing_meas=0(0), #rejected_pats=0, CPU time=0.02
  Existing/added X measures in the external patterns: 0/0
 run_fault_sim
  Simulation performed for 16446 faults on circuit size of 5439 gates.
@@ -106,7 +106,7 @@ run_fault_sim
  32              0  16446     7.93%      0.00
  Fault simulation completed: #patterns=674, CPU time=0.01
 report_faults -slack sdql
- SDQL 265493616.00
+ SDQL 265091552.00
 report_faults -slack effectiveness
  ------------------------------------------------------------------------------
  delay effectiveness   0.00%

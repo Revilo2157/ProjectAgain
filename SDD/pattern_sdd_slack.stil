@@ -1,7 +1,7 @@
 STIL 1.0 { Design 2005; }
 Header {
    Title "  TetraMAX(R)  O-2018.06-SP5-1-i20190308_134335 STIL output";
-   Date "Thu Apr 29 02:51:54 2021";
+   Date "Thu Apr 29 03:00:39 2021";
    Source "Minimal STIL for design `divider_dshift'";
    History {
       Ann {*  Incoming_Date "Thu Apr 29 02:40:54 2021"  *}
