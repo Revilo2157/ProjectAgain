@@ -28,8 +28,14 @@ def doRandom():
 def increaseDelay(dString):
     vals = dString.split(":")
     inc = random.uniform(0.001, MAX)
-    return ":".join([str(inc + float(val))[:5] for val in vals])
-
+    ret = []
+    for val in vals:
+        if val:
+            toAdd = str(inc + float(val))[:5]
+        else:
+            toAdd = ""
+        ret.append(toAdd)
+    return ret
 
 def toString(object, file):
     if isinstance(object, list):
