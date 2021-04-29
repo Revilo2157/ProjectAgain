@@ -37,7 +37,7 @@ echo Chance: $chance > ${outDir}/delay.txt
 for delay in $(seq 0.00025 0.00025 0.01)
 do
 	echo Delay: $delay
-	python python/sdfParser.py $top $delay $chance
+	python3 python/sdfParser.py $top $delay $chance
 
 	pt_shell -f ./tcl/PT_faulty.tcl > "${outDir}/pt_faulty${delay}.txt"
 	echo Finished PrimeTime
@@ -60,7 +60,7 @@ echo Delay: $delay > ${outDir}/chance.txt
 for chance in $(seq 0.25 0.25 10)
 do
 	echo Chance: $chance
-        python python/sdfParser.py $top $delay $chance
+        python3 python/sdfParser.py $top $delay $chance
 
         pt_shell -f ./tcl/PT_faulty.tcl > "${outDir}/pt_faulty${chance}.txt"
         echo Finished PrimeTime

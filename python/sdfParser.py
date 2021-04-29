@@ -34,8 +34,8 @@ def increaseDelay(dString):
             toAdd = str(inc + float(val))[:5]
         else:
             toAdd = ""
-        ret.append(":".join(toAdd))
-    return ret
+        ret.append(toAdd)
+    return ":".join(ret)
 
 def toString(object, file):
     if isinstance(object, list):
