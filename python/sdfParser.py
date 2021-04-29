@@ -57,7 +57,7 @@ if not len(sys.argv) == 4:
     print("Not enough arguments \ntopLevel, MAX Delay ex: (0.005), chance for fault ex: (0.01)")
     exit()
 
-file = "compilation/%s.sdf" % sys.argv[1]
+file = "sdd/%s.sdf" % sys.argv[1]
 MAX = float(sys.argv[2])
 chance = float(sys.argv[3])
 num_faults = 0
@@ -123,5 +123,5 @@ with open(file, "r") as sdfFile:
 
 print(num_nets, num_faults, int(num_faults / num_nets * 10000) / 100, sys.argv[1:])
         
-with open("compilation/%s_faulty.sdf" % sys.argv[1], "w") as toWrite:
+with open("sdd/%s_faulty.sdf" % sys.argv[1], "w") as toWrite:
     toString(stack, toWrite)

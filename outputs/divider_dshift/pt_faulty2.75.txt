@@ -54,9 +54,9 @@ set_ideal_network [get_ports $CLK]
 1
 #set_propagated_clock [all_clocks]
 #set_clock_uncertainty 0.2 [all_clocks]
-read_sdf compilation/${top_module}_faulty.sdf
+read_sdf compilation/${top_module}.sdf
 Information: Merging of parallel arcs is disabled by read_sdf. (SDF-040)
-Error: Error in SDF file /winhomes/oar5/project/compilation/divider_dshift_faulty.sdf Line 55908: Syntax Error at or near token '&'. (SDF-008)
+Error: Error in SDF file /winhomes/oar5/project/compilation/divider_dshift.sdf Line 16250: Syntax Error at or near token '&'. (SDF-008)
 0
 #set_operating_conditions -min WORST -max WORST
 report_timing 
@@ -68,7 +68,7 @@ Report : timing
 	-sort_by slack
 Design : divider_dshift
 Version: K-2015.06-SP3-2
-Date   : Thu Apr 29 01:18:50 2021
+Date   : Thu Apr 29 02:39:27 2021
 ****************************************
 
 
@@ -84,26 +84,26 @@ Date   : Thu Apr 29 01:18:50 2021
   clock network delay (ideal)              0.01       0.01
   q_reg_1_/CK (SDFFR_X2)                   0.00       0.01 r
   q_reg_1_/Q (SDFFR_X2)                    0.18       0.19 r
-  U2542/ZN (NAND3_X2)                      0.05 *     0.24 f
-  U295/ZN (OR3_X2)                         0.11 H     0.35 f
+  U2542/ZN (NAND3_X2)                      0.04 *     0.24 f
+  U295/ZN (OR3_X2)                         0.11 H     0.34 f
   U294/ZN (OR3_X2)                         0.11 H     0.45 f
   U293/ZN (OR3_X2)                         0.11 H     0.56 f
-  U292/ZN (OR3_X2)                         0.11 H     0.67 f
-  U291/ZN (OR3_X2)                         0.11 H     0.78 f
+  U292/ZN (OR3_X2)                         0.11 H     0.66 f
+  U291/ZN (OR3_X2)                         0.11 H     0.77 f
   U290/ZN (OR3_X2)                         0.11 H     0.88 f
-  U289/ZN (OR3_X2)                         0.11 H     0.99 f
-  U288/ZN (OR3_X2)                         0.11 H     1.10 f
+  U289/ZN (OR3_X2)                         0.11 H     0.98 f
+  U288/ZN (OR3_X2)                         0.11 H     1.09 f
   U287/ZN (OR3_X2)                         0.11 H     1.20 f
   U286/ZN (OR3_X2)                         0.11 H     1.31 f
-  U285/ZN (OR3_X2)                         0.11 H     1.42 f
+  U285/ZN (OR3_X2)                         0.11 H     1.41 f
   U284/ZN (OR3_X2)                         0.11 H     1.52 f
   U283/ZN (OR3_X2)                         0.10 H     1.62 f
   U2311/ZN (AOI21_X2)                      0.06 *     1.68 r
-  U2540/ZN (OAI21_X2)                      0.04 *     1.72 f
+  U2540/ZN (OAI21_X2)                      0.04 *     1.71 f
   U151/ZN (AOI221_X2)                      0.07 H     1.79 r
-  U150/ZN (OAI221_X2)                      0.05 H     1.84 f
-  reg_b_reg_30_/D (SDFFR_X2)               0.00 *     1.84 f
-  data arrival time                                   1.84
+  U150/ZN (OAI221_X2)                      0.05 H     1.83 f
+  reg_b_reg_30_/D (SDFFR_X2)               0.00 *     1.83 f
+  data arrival time                                   1.83
 
   clock i_clk (rise edge)                  1.00       1.00
   clock network delay (ideal)              0.01       1.01
@@ -113,9 +113,9 @@ Date   : Thu Apr 29 01:18:50 2021
   data required time                                  0.91
   ---------------------------------------------------------------
   data required time                                  0.91
-  data arrival time                                  -1.84
+  data arrival time                                  -1.83
   ---------------------------------------------------------------
-  slack (VIOLATED)                                   -0.93
+  slack (VIOLATED)                                   -0.92
 
 
 1
@@ -132,7 +132,7 @@ Information: Defining new variable 'top_module'. (CMD-041)
 
 Timing updates: 2 (1 implicit, 1 explicit) (1 incremental, 1 full, 0 logical)
 Noise updates: 0 (0 implicit, 0 explicit) (0 incremental, 0 full)
-Maximum memory usage for this session: 584.15 MB
+Maximum memory usage for this session: 571.32 MB
 CPU usage for this session: 2 seconds 
 Elapsed time for this session: 2 seconds
 Diagnostics summary: 1 error, 8 informationals

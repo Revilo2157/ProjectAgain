@@ -23,5 +23,5 @@ report_power > ${top_module}.power_rpt
 write_test_protocol -output ${top_module}.spf
 write -hierarchy -format verilog -output ${top_module}_scan.v
 write -hierarchy -format ddc -output ${top_module}.ddc
-write_sdf -version 2.1 -context verilog ${top_module}.sdf 
+write_sdf -context verilog ${top_module}.sdf 
 exit

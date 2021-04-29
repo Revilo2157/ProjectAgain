@@ -29,7 +29,7 @@ set_ideal_network [get_ports $CLK]
 #set_propagated_clock [all_clocks]
 #set_clock_uncertainty 0.2 [all_clocks]
 
-read_sdf compilation/${top_module}_faulty.sdf
+read_sdf SDD/${top_module}_faulty.sdf
 
 #set_operating_conditions -min WORST -max WORST
 

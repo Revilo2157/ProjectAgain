@@ -1,0 +1,183 @@
+                                        
+                                 PrimeTime (R)
+                                        
+              Version K-2015.06-SP3-2 for linux64 - Apr 07, 2016 
+                                        
+                    Copyright (c) 1988 - 2016 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+set library_name NangateOpenCellLibrary
+NangateOpenCellLibrary
+set link_library [list * nangate_scan.db]
+* nangate_scan.db
+set top_module $::env(top)
+multdiv
+read_verilog ./gate/${top_module}/${top_module}_scan.v
+1
+#ungroup -flatten -all
+# Define top level in the hierarchy
+current_design $top_module
+Loading verilog file '/winhomes/oar5/project/gate/multdiv/multdiv_scan.v'
+Loading db file '/winhomes/oar5/project/nangate_scan.db'
+Information: tri converted to a wire with no special attributes
+	at line 152 in /winhomes/oar5/project/gate/multdiv/multdiv_scan.v (SVR-21)
+{"multdiv"}
+link_design 
+Linking design multdiv...
+Information: 106 (79.10%) library cells are unused in library nangate_scan..... (LNK-045)
+Information: total 106 library cells are unused (LNK-046)
+Design 'multdiv' was successfully linked.
+Information: There are 1334 leaf cells, ports, hiers and 1211 nets in the design (LNK-047)
+1
+# SET CONSTRAINTS
+set_max_area 0
+1
+#Clock setup commands
+set CLK_PERIOD $::env(CLK_PERIOD)
+1
+#set DFF_CKQ 0.02
+#set SETUP_TIME 0.01
+set CLK $::env(clk) 
+clock
+create_clock -period $CLK_PERIOD [get_ports $CLK]
+1
+set_clock_transition -rise 0.05 [get_clocks $CLK]
+1
+set_clock_transition -fall 0.03 [get_clocks $CLK]
+1
+set_clock_latency -rise 0.01 [get_clocks $CLK]
+1
+set_clock_latency -fall 0.03 [get_clocks $CLK]
+1
+set_ideal_network [get_ports $CLK]
+1
+#set_propagated_clock [all_clocks]
+#set_clock_uncertainty 0.2 [all_clocks]
+read_sdf compilation/${top_module}.sdf
+Information: Merging of parallel arcs is disabled by read_sdf. (SDF-040)
+Error: Error in SDF file /winhomes/oar5/project/compilation/multdiv.sdf Line 5810: Syntax Error at or near token '&'. (SDF-008)
+0
+#set_operating_conditions -min WORST -max WORST
+report_timing 
+Warning: Some timing arcs have been disabled for breaking timing loops
+	or because of constant propagation. Use the 'report_disable_timing'
+	command to get the list of these disabled timing arcs. (PTE-003)
+****************************************
+Report : timing
+	-path_type full
+	-delay_type max
+	-max_paths 1
+	-sort_by slack
+Design : multdiv
+Version: K-2015.06-SP3-2
+Date   : Thu Apr 29 02:29:58 2021
+****************************************
+
+
+  Startpoint: product_reg/memory_63__dff/q_reg
+               (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: product_reg/memory_63__dff/q_reg
+               (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Point                                                   Incr       Path
+  ------------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.01       0.01
+  product_reg/memory_63__dff/q_reg/CK (SDFF_X1)           0.00       0.01 r
+  product_reg/memory_63__dff/q_reg/QN (SDFF_X1)           0.22       0.23 f
+  U652/Z (XOR2_X2)                                        0.10 H     0.33 f
+  U650/ZN (OAI22_X2)                                      0.11 H     0.44 r
+  U960/ZN (AND2_X2)                                       0.09 *     0.52 r
+  U902/ZN (INV_X4)                                        0.05 *     0.57 f
+  U637/ZN (OAI221_X2)                                     0.10 H     0.67 r
+  U634/ZN (AOI221_X2)                                     0.05 H     0.72 f
+  U958/ZN (NOR2_X2)                                       0.07 *     0.79 r
+  U879/ZN (OAI21_X2)                                      0.04 *     0.83 f
+  U670/ZN (INV_X4)                                        0.02 H     0.85 r
+  U949/ZN (AOI21_X2)                                      0.02 *     0.87 f
+  U948/ZN (AOI21_X2)                                      0.09 *     0.96 r
+  U895/ZN (OAI21_X2)                                      0.05 *     1.01 f
+  U579/ZN (AOI22_X2)                                      0.11 H     1.12 r
+  U947/ZN (AOI21_X2)                                      0.05 *     1.16 f
+  U880/ZN (AOI21_X2)                                      0.07 *     1.23 r
+  U894/ZN (OAI21_X2)                                      0.04 *     1.27 f
+  U953/ZN (OAI21_X2)                                      0.05 *     1.32 r
+  U667/ZN (INV_X4)                                        0.01 H     1.33 f
+  U952/ZN (AOI21_X2)                                      0.08 *     1.41 r
+  U666/ZN (INV_X4)                                        0.02 H     1.42 f
+  U885/ZN (AOI21_X2)                                      0.06 *     1.48 r
+  U882/ZN (OAI21_X2)                                      0.05 *     1.53 f
+  U887/ZN (AOI21_X2)                                      0.07 *     1.60 r
+  U897/ZN (OAI21_X2)                                      0.04 *     1.64 f
+  U665/ZN (INV_X4)                                        0.03 H     1.66 r
+  U892/ZN (OAI21_X2)                                      0.03 *     1.69 f
+  U884/ZN (AOI21_X2)                                      0.06 *     1.75 r
+  U899/ZN (OAI21_X2)                                      0.04 *     1.79 f
+  U512/ZN (AOI22_X2)                                      0.11 H     1.90 r
+  U890/ZN (OAI21_X2)                                      0.05 *     1.94 f
+  U888/ZN (AOI21_X2)                                      0.07 *     2.01 r
+  U664/ZN (INV_X4)                                        0.02 H     2.03 f
+  U886/ZN (AOI21_X2)                                      0.06 *     2.09 r
+  U896/ZN (OAI21_X2)                                      0.04 *     2.13 f
+  U663/ZN (INV_X4)                                        0.03 H     2.15 r
+  U891/ZN (OAI21_X2)                                      0.03 *     2.18 f
+  U883/ZN (AOI21_X2)                                      0.06 *     2.24 r
+  U898/ZN (OAI21_X2)                                      0.04 *     2.28 f
+  U432/ZN (AOI22_X2)                                      0.12 H     2.40 r
+  U950/ZN (OAI21_X2)                                      0.05 *     2.45 f
+  U889/ZN (AOI21_X2)                                      0.06 *     2.51 r
+  U662/ZN (INV_X4)                                        0.02 H     2.53 f
+  U881/ZN (AOI21_X2)                                      0.06 *     2.59 r
+  U893/ZN (OAI21_X2)                                      0.04 *     2.63 f
+  U661/ZN (INV_X4)                                        0.03 H     2.66 r
+  U956/ZN (OAI21_X2)                                      0.03 *     2.69 f
+  U660/ZN (INV_X4)                                        0.03 H     2.72 r
+  U383/Z (XOR2_X2)                                        0.02 H     2.75 f
+  U380/ZN (OAI221_X2)                                     0.09 H     2.84 r
+  product_in_tri4_62_/Z (TBUF_X2)                         0.13 H     2.97 r
+  U190/ZN (INV_X4)                                        0.02 H     2.99 f
+  U963/ZN (NOR2_X2)                                       0.04 *     3.03 r
+  product_in_tri_63_/Z (TBUF_X2)                          0.13 H     3.16 r
+  U12/ZN (INV_X4)                                         0.01 H     3.17 f
+  U11/ZN (OAI22_X2)                                       0.05 H     3.22 r
+  product_reg/memory_63__dff/q_reg/D (SDFF_X1)            0.00 *     3.22 r
+  data arrival time                                                  3.22
+
+  clock clock (rise edge)                                 1.00       1.00
+  clock network delay (ideal)                             0.01       1.01
+  clock reconvergence pessimism                           0.00       1.01
+  product_reg/memory_63__dff/q_reg/CK (SDFF_X1)                      1.01 r
+  library setup time                                     -0.11       0.90
+  data required time                                                 0.90
+  ------------------------------------------------------------------------------
+  data required time                                                 0.90
+  data arrival time                                                 -3.22
+  ------------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -2.32
+
+
+1
+set timing_save_pin_arrival_and_slack TRUE
+TRUE
+update_timing
+1
+report_global_slack -max -nosplit > ./SDD/slack.dat
+quit
+Information: Defining new variable 'CLK'. (CMD-041)
+Information: Defining new variable 'library_name'. (CMD-041)
+Information: Defining new variable 'CLK_PERIOD'. (CMD-041)
+Information: Defining new variable 'top_module'. (CMD-041)
+
+Timing updates: 2 (1 implicit, 1 explicit) (1 incremental, 1 full, 0 logical)
+Noise updates: 0 (0 implicit, 0 explicit) (0 incremental, 0 full)
+Maximum memory usage for this session: 476.74 MB
+CPU usage for this session: 1 seconds 
+Elapsed time for this session: 1 seconds
+Diagnostics summary: 1 error, 1 warning, 8 informationals
+
+Thank you for using pt_shell!

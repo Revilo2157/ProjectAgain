@@ -36,7 +36,7 @@ report_timing
 set timing_save_pin_arrival_and_slack TRUE
 update_timing
 report_global_slack -max -nosplit > ./SDD/slack.dat
-
+write_sdf ./SDD/${top_module}.sdf -context verilog
 
 quit
 
