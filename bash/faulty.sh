@@ -54,7 +54,7 @@ echo Starting Locations
 export delay=0.005
 
 echo Delay: $delay > ${outDir}/chance.txt
-for chance in $(seq 1 1 10)
+for chance in $(seq 0.25 0.25 10)
 do
 	echo Chance: $chance
         python python/sdfParser.py $top $delay $chance

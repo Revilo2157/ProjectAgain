@@ -25,7 +25,7 @@ read_netlist -delete
 read_netlist $scan_lib -library
  Begin reading netlist ( ./nangate_scan.v )...
  End parsing Verilog file ./nangate_scan.v with 0 errors.
- End reading netlist: #modules=139, top=XOR2_X2, #lines=2594, CPU_time=0.00 sec, Memory=0MB
+ End reading netlist: #modules=139, top=XOR2_X2, #lines=2594, CPU_time=0.01 sec, Memory=0MB
 # read in user's synthesized verilog code
 #read_netlist $synthesized_files
 read_netlist  ./gate/${top_module}/${top_module}_scan.v
@@ -43,7 +43,7 @@ run_build_model $top_module
  End build model: #primitives=5439, CPU_time=0.01 sec, Memory=2MB
  ------------------------------------------------------------------------------
  Begin learning analyses...
- End learning analyses, total learning CPU time=0.11 sec.
+ End learning analyses, total learning CPU time=0.10 sec.
  ------------------------------------------------------------------------------
 set_drc $stil_file
 add_clocks 0 $::env(clk)
@@ -55,7 +55,7 @@ run_drc
  Begin reading test protocol file ./gate/divider_dshift/divider_dshift.spf...
  Warning: Rule V14 (missing state) was violated 1 times.
  End parsing STIL file ./gate/divider_dshift/divider_dshift.spf with 0 errors.
- Test protocol file reading completed, CPU time=0.00 sec.
+ Test protocol file reading completed, CPU time=0.02 sec.
  ------------------------------------------------------------------------------
  Begin simulating test protocol procedures...
  Test protocol simulation completed, CPU time=0.00 sec.
@@ -76,13 +76,13 @@ run_drc
  ------------------------------------------------------------------------------
  Begin DRC dependent learning...
  Fast-sequential depth results: control=0(0), observe=0(0), detect=0(0), CPU time=0.00 sec
- DRC dependent learning completed, CPU time=0.00 sec.
+ DRC dependent learning completed, CPU time=0.01 sec.
  ------------------------------------------------------------------------------
  DRC Summary Report
  ------------------------------------------------------------------------------
  Warning: Rule V14 (missing state) was violated 1 times.
  There were 1 violations that occurred during DRC process.
- Design rules checking was successful, total CPU time=0.01 sec.
+ Design rules checking was successful, total CPU time=0.03 sec.
  ------------------------------------------------------------------------------
 read_timing ./SDD/slack.dat
  reading slack data file ./SDD/slack.dat.
@@ -95,7 +95,7 @@ set_patterns -external ./SDD/pattern_sdd_slack.stil
  End reading 674 patterns, CPU_time = 0.12 sec, Memory = 0MB
 run_simulation -override_differences
  Begin good simulation of 674 external patterns.
- Simulation completed: #patterns=674, #fail_pats=0(0), #failing_meas=0(0), #rejected_pats=0, CPU time=0.02
+ Simulation completed: #patterns=674, #fail_pats=0(0), #failing_meas=0(0), #rejected_pats=0, CPU time=0.01
  Existing/added X measures in the external patterns: 0/0
 run_fault_sim
  Simulation performed for 16446 faults on circuit size of 5439 gates.
@@ -103,10 +103,10 @@ run_fault_sim
  #patterns     #faults     test      process
  simulated  detect/active  coverage  CPU time
  ---------  -------------  --------  --------
- 32              0  16446     7.93%      0.00
+ 32              0  16446     7.93%      0.01
  Fault simulation completed: #patterns=674, CPU time=0.02
 report_faults -slack sdql
- SDQL 265504768.00
+ SDQL 265515056.00
 report_faults -slack effectiveness
  ------------------------------------------------------------------------------
  delay effectiveness   0.00%

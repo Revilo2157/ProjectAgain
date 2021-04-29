@@ -40,10 +40,10 @@ run_build_model $top_module
  Warning: Rule B9 (undriven module internal net) was violated 8 times.
  Warning: Rule B10 (unconnected module internal net) was violated 8 times.
  Warning: Rule N21 (unsupported UDP entry) was violated 2 times.
- End build model: #primitives=5439, CPU_time=0.01 sec, Memory=2MB
+ End build model: #primitives=5439, CPU_time=0.02 sec, Memory=2MB
  ------------------------------------------------------------------------------
  Begin learning analyses...
- End learning analyses, total learning CPU time=0.11 sec.
+ End learning analyses, total learning CPU time=0.10 sec.
  ------------------------------------------------------------------------------
 set_drc $stil_file
 add_clocks 0 $::env(clk)
@@ -64,7 +64,7 @@ run_drc
  Chain 1 successfully traced with 117 scan_cells.
  Chain 2 successfully traced with 117 scan_cells.
  Chain 3 successfully traced with 117 scan_cells.
- Scan chain operation checking completed, CPU time=0.00 sec.
+ Scan chain operation checking completed, CPU time=0.01 sec.
  ------------------------------------------------------------------------------
  Begin clock rules checking...
  Clock rules checking completed, CPU time=0.00 sec.
@@ -76,13 +76,13 @@ run_drc
  ------------------------------------------------------------------------------
  Begin DRC dependent learning...
  Fast-sequential depth results: control=0(0), observe=0(0), detect=0(0), CPU time=0.00 sec
- DRC dependent learning completed, CPU time=0.00 sec.
+ DRC dependent learning completed, CPU time=0.01 sec.
  ------------------------------------------------------------------------------
  DRC Summary Report
  ------------------------------------------------------------------------------
  Warning: Rule V14 (missing state) was violated 1 times.
  There were 1 violations that occurred during DRC process.
- Design rules checking was successful, total CPU time=0.01 sec.
+ Design rules checking was successful, total CPU time=0.02 sec.
  ------------------------------------------------------------------------------
 read_timing ./SDD/slack.dat
  reading slack data file ./SDD/slack.dat.
@@ -103,10 +103,10 @@ run_fault_sim
  #patterns     #faults     test      process
  simulated  detect/active  coverage  CPU time
  ---------  -------------  --------  --------
- 32              0  16446     7.93%      0.00
- Fault simulation completed: #patterns=674, CPU time=0.01
+ 32              0  16446     7.93%      0.01
+ Fault simulation completed: #patterns=674, CPU time=0.02
 report_faults -slack sdql
- SDQL 265495888.00
+ SDQL 265499120.00
 report_faults -slack effectiveness
  ------------------------------------------------------------------------------
  delay effectiveness   0.00%
