@@ -13,7 +13,7 @@ read_netlist  ./gate/${top_module}/${top_module}_scan.v
 
 run_build_model $top_module
 set_drc $stil_file
-add_clocks 0 clk
+add_clocks 0 $::env(clk)
 add_pi_constraints 0 test_se
 run_drc
 read_timing ./SDD/slack.dat
@@ -29,3 +29,5 @@ run_fault_sim
 
 report_faults -slack sdql
 report_faults -slack effectiveness
+
+exit

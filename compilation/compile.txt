@@ -29,7 +29,7 @@ NangateOpenCellLibrary.db
 set link_library   "* NangateOpenCellLibrary.db"
 * NangateOpenCellLibrary.db
 set timestamp [clock format [clock scan now] -format "%Y-%m-%d_%H-%M"]
-2021-04-29_00-21
+2021-04-29_00-39
 set enable_page_mode false
 false
 set sh_new_variable_message false
@@ -784,7 +784,7 @@ check_design
 ****************************************
 check_design summary:
 Version:     F-2011.09
-Date:        Thu Apr 29 00:21:30 2021
+Date:        Thu Apr 29 00:40:07 2021
 ****************************************
 
                    Name                                            Total
@@ -969,8 +969,8 @@ Information: The register 'shifted_1_reg[4]' is a constant and will be removed. 
     0:00:06    4759.5      0.00       0.0       0.0 reg_a_reg[21]/D               -3.78
     0:00:07    4786.4      0.00       0.0       0.0 sdata_reg[2]/D                -2.20
     0:00:07    4813.5      0.00       0.0       0.0 sdata_reg[14]/D               -0.73
-    0:00:08    4835.1      0.00       0.0       0.0 reg_a_reg[16]/D               -0.05
-    0:00:08    4839.1      0.00       0.0       0.0                                0.00
+    0:00:07    4835.1      0.00       0.0       0.0 reg_a_reg[16]/D               -0.05
+    0:00:07    4839.1      0.00       0.0       0.0                                0.00
 
 
   Beginning Area-Recovery Phase  (max_area 0)
@@ -979,8 +979,8 @@ Information: The register 'shifted_1_reg[4]' is a constant and will be removed. 
    ELAPSED            WORST NEG TOTAL NEG  DESIGN                             MIN DELAY
     TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT            COST   
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:08    4839.1      0.00       0.0       0.0                                0.00
-    0:00:08    4839.1      0.00       0.0       0.0                                0.00
+    0:00:07    4839.1      0.00       0.0       0.0                                0.00
+    0:00:07    4839.1      0.00       0.0       0.0                                0.00
     0:00:08    4826.0      0.00       0.0       0.0                                0.00
     0:00:08    4819.9      0.01       0.0       0.0                                0.00
     0:00:08    4815.7      0.01       0.0       0.0                                0.00
@@ -994,14 +994,14 @@ Information: The register 'shifted_1_reg[4]' is a constant and will be removed. 
     0:00:08    4799.7      0.00       0.0       0.0                                0.00
     0:00:08    4799.7      0.00       0.0       0.0                                0.00
     0:00:08    4799.7      0.00       0.0       0.0                                0.00
-    0:00:09    4743.8      0.00       0.0       0.0                                0.00
+    0:00:08    4743.8      0.00       0.0       0.0                                0.00
     0:00:09    4715.1      0.00       0.0       0.0                                0.00
-    0:00:10    4690.4      0.00       0.0       0.0                                0.00
-    0:00:10    4690.4      0.00       0.0       0.0                                0.00
-    0:00:10    4690.4      0.00       0.0       0.0                                0.00
-    0:00:10    4690.4      0.00       0.0       0.0                                0.00
-    0:00:10    4690.4      0.00       0.0       0.0                                0.00
-    0:00:10    4690.4      0.00       0.0       0.0                                0.00
+    0:00:09    4690.4      0.00       0.0       0.0                                0.00
+    0:00:09    4690.4      0.00       0.0       0.0                                0.00
+    0:00:09    4690.4      0.00       0.0       0.0                                0.00
+    0:00:09    4690.4      0.00       0.0       0.0                                0.00
+    0:00:09    4690.4      0.00       0.0       0.0                                0.00
+    0:00:09    4690.4      0.00       0.0       0.0                                0.00
     0:00:10    4690.9      0.00       0.0       0.0                                0.00
 Loading db file '/winhomes/oar5/project/compilation/NangateOpenCellLibrary.db'
 

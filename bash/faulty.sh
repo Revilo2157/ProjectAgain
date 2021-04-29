@@ -1,4 +1,33 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+	echo "Need top level module name, and clock pin"
+	exit 1
+fi
+
+export top=$1
+export clk=$2
+
+
+export CLK_PERIOD=1
+echo Clock Period of: $CLK_PERIOD 
+
 export outDir=outputs/${top}
+
+export c=20
+SLACK=$c
+export TMGN=$(awk "BEGIN {printf \"%.2f\n \", $CLK_PERIOD * $SLACK / 100}");
+pt_shell -f ./tcl/PT_scriptsd.tcl > "${outDir}/pt_final.txt"
+echo Finished PrimeTime
+
+export patterns=750
+export time=1.5
+
+echo
+echo Doing final ATPG
+
+tmax -shell ./tcl/sddatpg.tcl > "${outDir}/tmax_final.txt"
+echo Finished TetraMax
 
 echo
 echo Starting size

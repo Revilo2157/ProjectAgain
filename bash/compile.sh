@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ $# -ne 2 ]; then
 	echo "Need top level module name, and clock pin"
 	exit 1
